@@ -1,0 +1,84 @@
+
+#Registerbox .form-control{
+    width: 400px;
+    margin-bottom: 0 !important;
+}
+
+#Registerbox h2{
+    text-align: center;
+    margin-bottom: 40px;
+    background-color: #3B558A;
+    color: white;
+    height: 50px;
+    padding-top: 6px;
+}
+
+#Registerbox .input-group{
+    margin-left: 350px;
+}
+
+#Registerbox strong{
+    margin-left: 350px;
+    margin-bottom: 20px;
+}
+
+#btnRegister_form{
+    float: none!important;
+    margin-left: 350px;
+    margin-top: 20px;
+    width: 433px;
+    background-color: #286090;
+    margin-bottom: 10px;
+}
+
+#Registerbox #sizing-addon3{
+    background-color: #286090;
+    color: white;
+}
+
+#txtErrorRegis{
+    text-align: center;
+    color: red;
+    font-size: 18px;
+}
+
+#borderErrorPass{
+    width: 400px;
+    border-top: 2px solid red;
+}
+
+#OrderInforBox{
+    border: 3px solid #286090;
+}
+
+#OrderInforBox h4{
+        height: 40px;
+    font-size: 20px;
+    padding-top: 7px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+#OrderInforBox h6{
+    margin-left: 150px;
+}
+
+#OrderInforBox strong{
+    margin-left: 150px;
+
+}
+
+#OrderInforBox .form-control{
+    width: 490px;
+}
+
+#OrderInforBox .btn{
+    margin-left: 280px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 490px;
+}
+
+#ForumBox a:hover{
+    text-decoration: none;
+}

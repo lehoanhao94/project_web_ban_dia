@@ -1,0 +1,42 @@
+﻿@using WorldOfDiscs.Models
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Forum_Post>
+
+@{
+    ViewBag.Title = "Forum";
+    Layout = "~/Views/Shared/_TopBarLayout.cshtml";
+}
+<link href="~/Content/UserCssLayout/Forum.css" rel="stylesheet" />
+@section Content{
+    <div class="container" id="ForumBox">
+        <h4>Diễn đàn</h4>
+        <p>Nơi gặp gỡ, trao đổi của những bạn thành viên WOD</p>
+        <a href="/Forum/CreatePost" class="btnNewPost btn-success"> Đăng bài mới <span class="glyphicon glyphicon-pencil"></span></a>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Số thứ tự</th>
+                    <th>Tiêu đề</th>
+                    <th>Người đăng</th>
+                    <th>Ngày đăng</th>
+                    <th>Số lượng thảo luận</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{Function f = new Function();}
+                @foreach (var post in Model)
+                {
+                    <tr>
+                        <td>@post.Id</td>
+                        <td><a href="@Url.Action("DetailPost", "Forum", new { @Id_Post = post.Id})">@post.Title</a></td>
+                        <td>@f.GetNameUser((int)@post.Id_User) (ID: @post.Id_User)</td>
+                        <td>@post.Date.Value.ToString("dd/MM/yyyy lúc hh:mm")</td>
+                        <td>@f.GetNumComment((int)@post.Id).ToString()</td>
+                    </tr>
+                }              
+            </tbody>
+        </table>
+        <div class="mPagination">@Html.PagedListPager(Model, page => Url.Action("Forum", "Home", new {page = page }))</div>
+    </div>
+}
+

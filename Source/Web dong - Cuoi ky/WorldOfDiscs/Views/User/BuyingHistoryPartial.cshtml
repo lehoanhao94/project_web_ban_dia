@@ -1,0 +1,50 @@
+﻿@using WorldOfDiscs.Models
+@model List<DiscInBuyingHistory>
+
+<div id="buying_history" class="tab-pane fade">
+    @{
+        if (Model == null)
+        {
+            <label class="labelNull">Bạn chưa mua hàng nên không có lịch sử.</label>
+        }
+        else
+        {
+            <table id="tblBuying_history" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Bìa đĩa</th>
+                        <th>Tiêu đề</th>
+                        <th>SL</th>
+                        <th>Giá</th>
+                        <th>Ngày mua</th>
+                        <th>Đã nhận/Chưa nhận</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{int i = 1;}
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td class="img_history"><img src=@Url.Content("~/img/disc/" + item.Image_small) width="96" height="130"></td>
+                            <td>@item.Title</td>
+                            <td>@item.Number</td>
+                            <td>@String.Format("{0:0,0}", item.Price) VNĐ</td>
+                            <td>@item.Date.ToString("dd/MM/yyyy")</td>
+                            @if (item.Status == 1)
+                            {
+                                <td><span class="glyphicon glyphicon-ok" style="color: #47A447;"></span></td>
+                            }
+                            @if (item.Status == 0)
+                            {
+                                <td><span class="glyphicon glyphicon-remove" style="color: #D9534F;"></span></td>
+                            }
+                        </tr>
+                            i++;
+                    }
+                </tbody>
+            </table>
+        }
+    }
+</div>

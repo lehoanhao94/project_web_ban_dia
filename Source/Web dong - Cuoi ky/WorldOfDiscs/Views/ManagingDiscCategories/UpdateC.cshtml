@@ -1,0 +1,41 @@
+﻿@using WorldOfDiscs.Models
+@model Category
+@{
+    ViewBag.Title = "UpdateC";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Function f = new Function();
+}
+
+
+<div class="container">
+    <h2>Managing Disc Category</h2>
+    <p>Modify Disc Category in WOD</p>
+    <br />
+    <table class="table">
+        <thead>
+            <tr class="info">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Group Category</th>
+                <th>Control</th>
+            </tr>
+        </thead>
+        <tbody>
+            @using (Html.BeginForm("UpdateC", "ManagingDiscCategories", FormMethod.Post))
+            {
+                <tr class="danger">
+                    <td><input name="Id_Category" class="form-control" type="text" required value="@Model.Id"></td>
+                    <td><input name="Name" class="form-control" type="text" required value="@Model.Name"></td>
+                    <td>@Html.DropDownList("GroupCategory", (IEnumerable<SelectListItem>)ViewBag.GroupCategory, new { @class = "Group_category form-control", @style = "width: 150px;float: left; margin-left: 10px;" })</td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

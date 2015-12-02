@@ -1,0 +1,68 @@
+﻿@using WorldOfDiscs.Models
+@model List<DiscInShoppingCart>
+
+@{int i = 1;}
+@{
+    ViewBag.Title = "ShoppingCart";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+@section Right_content
+{
+    <h4 style="height: 40px;font-size: 20px;padding-top: 7px;">Giỏ hàng</h4>
+    <table id="tblShopping_Cart" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Bìa đĩa</th>
+                <th>Tiêu đề</th>
+                <th>Giá</th>
+                <th style="width: 100px;">Số lượng</th>
+                <th>Thành tiền</th>
+                <th>Cập nhật</th>
+                <th>Xóa</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td class="img_history"><img src=@Url.Content("~/img/disc/" + item.Image_small) width="96" height="130"></td>
+                    <td>@item.Title</td>
+                    <td>@String.Format("{0:0,0}", item.Price) VNĐ</td>
+                    <td>@item.Number</td>
+                    <td>@String.Format("{0:0,0}", item.TotalMoney) VNĐ</td>
+                    <td style="padding-top: 40px;"><a href="/ShoppingCart/UpdateShoppingCart" id="btnUpd_producr_cart" class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span></a></td>
+                    @using (Html.BeginForm("DeleteDiscInShoppingCart", "ShoppingCart", new { @Id_Disc = item.Id_Disc, }))
+                    {
+                        <td style="padding-top: 40px;"><button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></td>
+                    }
+                </tr>
+                i++;
+            }
+                <tr>
+                    <td colspan="8" style="padding-top: 10px; background-color: #286090; color: white; font-size: 17px">
+                        <strong>Tổng tiền: </strong><span>@String.Format("{0:0,0}", ViewBag.TotalMoney) VNĐ</span>
+                    </td>
+                </tr>
+            <tr>
+                <td colspan="8" style="padding: 0px;color: white; font-size: 27px">
+                    @using (Html.BeginForm("Order", "ShoppingCart"))
+                    {
+                        <button type="submit" class="btn btn-success btn-lg" style="width: 100%;">
+                            <span class="glyphicon glyphicon-thumbs-up"></span> Đặt mua đĩa 
+                        </button>
+                    }
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+}
+
+
+
+

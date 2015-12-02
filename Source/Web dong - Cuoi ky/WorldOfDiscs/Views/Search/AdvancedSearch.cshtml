@@ -1,0 +1,51 @@
+﻿@using WorldOfDiscs.Models;
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "AdvancedSearch";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<link href="~/Content/UserCssLayout/Search.css" rel="stylesheet" />
+@section Right_Content
+{
+    <h4 style="height: 40px!important;font-size: 20px!important;padding-top: 7px!important;margin-top: 0px!important; margin-bottom: 0;">Tìm kiếm nâng cao </h4>
+    @using (Html.BeginForm("AdvancedSearchResults", "Search", FormMethod.Post))
+    {
+        WorldOfDiscsEntities db = new WorldOfDiscsEntities();
+        List<Group_Category> lstGC = db.Group_Category.ToList();
+        <div style="padding-left: 200px; padding-top: 20px;border: 3px solid #286090;">
+            <table>
+                <tr>
+                    <td>@Html.Label("Từ khóa tìm kiếm : ", new { @style = "float: left; padding-top: 7px;" })</td>
+                    <td>@Html.TextBox("Keyword", "", new { @class = "editSearch form-control", @style = "width: 400px;" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Chọn danh mục : ", new { @style = "float: left; padding-top: 7px;" })</td>
+                    <td>@Html.DropDownList("GroupCategory", (IEnumerable<SelectListItem>)ViewBag.GroupCategory, new { @class = "editSearch form-control", @style = "width: 400px;" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Chọn thể loại : ", new { @style = "float: left; padding-top: 7px;" })</td>
+                    <td>@Html.DropDownList("Category", (IEnumerable<SelectListItem>)ViewBag.Category, new { @class = "editSearch form-control", @style = "width: 400px;" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Giá thấp nhất : ", new { @style = "float: left; padding-top: 7px;" })</td>
+                    <td>@Html.TextBox("MinPrice", "", new { @class = "editSearch form-control", @style = "width: 400px;" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Giá cao nhất : ", new { @style = "float: left; padding-top: 7px;" })</td>
+                    <td>@Html.TextBox("MaxPrice", "", new { @class = "editSearch form-control", @style = "width: 400px;" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Đĩa mới : ", new { @style = "float: left; padding-top: 7px;" })</td>
+                    <td>@Html.CheckBox("IsNew")</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="submit" class="btn btn-lg" style="background-color: #286090;color: white;margin-left: 135px; width: 400px; margin-bottom: 20px;"><span class="glyphicon glyphicon-search"></span> Tìm kiếm</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    }
+}
+

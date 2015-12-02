@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html><!-- InstanceBegin template="/Templates/myTemplate.dwt" codeOutsideHTMLIsLocked="false" -->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- INCLUDE -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+    	<link rel="stylesheet" type="text/css" href="css/mHeader.css">
+		<link rel="stylesheet" type="text/css" href="css/mContent.css">
+		<link rel="stylesheet" type="text/css" href="css/mFooter.css">
+        <link rel="stylesheet" type="text/css" href="css/Shopping_cart.css">
+        <link rel="stylesheet" type="text/css" href="css/Customer.css">
+        <link rel="stylesheet" type="text/css" href="css/Feedback.css">
+        <link rel="stylesheet" type="text/css" href="css/Search.css">
+        <link rel="stylesheet" type="text/css" href="css/Forum.css">
+        <link rel="stylesheet" type="text/css" href="css/Online-help.css">
+        <link rel="stylesheet" type="text/css" href="css/Detail-product.css">
+        <link rel="stylesheet" type="text/css" href="css/List-product.css">
+    <!-- InstanceBeginEditable name="doctitle" -->
+        <title>World of discs</title>
+        <!-- InstanceEndEditable -->
+        <!-- InstanceBeginEditable name="head" -->
+        <!-- InstanceEndEditable -->
+    </head>
+    
+    <body>
+		<!-- MAIN -->
+		<div id="mMain">
+			<!-- HEADER -->
+			<div id="mHeader">
+				<!-- MENU -->
+				<div id="mMenu">
+					<ul class="nav navbar-nav">
+						<li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Trang chủ</a></li>
+						<li><a href="search.html"><span class="glyphicon glyphicon-search"></span> Tìm kiếm</a></li>
+						<li><a href="online-help.html"><span class="glyphicon glyphicon-headphones"></span> Hỗ trợ trực tuyến</a></li> 
+						<li><a href="forum.html"><span class="glyphicon glyphicon-globe"></span> Diễn đàn</a></li> 
+						<li><a href="#" id="btnFeedback_nav"><span class="glyphicon glyphicon-envelope"></span> Góp ý</a></li>
+						<li><a href="#" id="btnRegister_nav"><span class="glyphicon glyphicon-user"></span> Đăng ký</a></li>
+					</ul>
+					<button id="btnCart" type="button" class="btn btn-default"><span class="glyphicon glyphicon-shopping-cart"></span> Giỏ hàng <span class="badge">1</span></button>
+				</div>
+				<!-- MENU | END -->
+				<!-- LOGO & LOGIN -->
+				<div id="mLogo_login">
+					<!-- LOGO -->
+					<div id="mLogo">
+						<img src="img/logo.gif" alt="logo">
+					</div>
+					<!-- LOGIN -->
+					<div id="mLogin">
+                    <a href="index-customer.html">Click đăng nhập thử...</a>
+					  <form class="navbar-form navbar-right">
+					    <div class="form-group">
+					      <input id="txtEmail" type="email" placeholder="Email"required class="form-control" />
+				        </div>
+					    <div class="form-group">
+					      <input type="password" placeholder="Mật khẩu"required class="form-control" />
+				        </div>
+					    <button type="submit" class="btn btn-primary">Đăng nhập</button>
+				    </form>
+					</div>
+				</div>
+				<!-- LOGO & LOGIN | END -->
+				<!-- SLIDES -->
+				<div id="mSlides">
+					<div class="container">
+					  <br>
+					  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+						<!-- Indicators -->
+						<ol class="carousel-indicators">
+						  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						  <li data-target="#myCarousel" data-slide-to="1"></li>
+						  <li data-target="#myCarousel" data-slide-to="2"></li>
+						  <li data-target="#myCarousel" data-slide-to="3"></li>
+						</ol>
+					
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner" role="listbox">
+							<!-- Hinh anh phim -->
+						  <div class="item active">
+							<a href="detail-product.html"><img src="img/paul-blart-mall-cop-2.jpg" alt="Paul Blart" width="460" height="345"></a>
+							<div class="carousel-caption">
+							  <h3>Paul Blart: Mall Cop 2</h3>
+							  <p>Paul Blart – một nhân viên an ninh tại siêu thị đưa con gái cưng Maya tới Las Vegas – nơi có hệ thống an ninh khủng nhất trên thế giới để tham dự triển lãm. Tại đây, ông vô tình phát hiện ra một kế hoạch đánh cướp sòng bạc tham vọng bậc nhất thế giới. Liệu một nhân viên an ninh vụng về có thể giải cứu cả Las Vegas?</p>
+							</div>
+						  </div>
+					
+						  <div class="item">
+							<a href="detail-product.html"><img src="img/shaun_chase_quad.jpg" alt="Sifu vs. Vampire" width="460" height="345"></a>
+							<div class="carousel-caption">
+							  <h3>Shaun the Sheep Movie</h3>
+							  <p>Phim Shaun The Sheep là phim hoạt hình kể về kế hoạch nghịch ngợm quá đà của chú chó Shaun, khi vô tình Shaun khiến chiếc xe cùng ông chủ đang ngủ ngon giấc bên trong, lăn vào thành phố. Để hói lỗi của mình, Shaun đã lên kế hoạch tìm cách giải thoát cho ông chủ, đưa bầy cừu về nhà an toàn.</p>
+							</div>
+						  </div>
+						
+						  <div class="item">
+							<a href="detail-product.html"><img src="img/sifu-vs.-vampire.jpg" alt="Flower" width="460" height="345"></a>
+							<div class="carousel-caption">
+							  <h3>Sifu vs. Vampire</h3>
+							  <p>Bộ phim Sifu vs vampire kể về hai tên giang hồ vô tình đánh thức một xác chết nhiều năm sau một vụ cá cược. Từ đó hồi sinh hàng loạt cương thi khác, các xác chết cương thi tràn ra đường phố HongKong và gây ra cảnh hỗn loạn. Mọi chuyện bắt đầu rối rắm và hài hước khi đám cương thi tiến vào phim trường đang quay phim về cuộc xâm lấn của các cương thi.</p>
+							</div>
+						  </div>
+					
+						  <div class="item">
+							<a href="detail-product.html"><img src="img/the-girl-who-can-see-smells.jpg" alt="Flower" width="460" height="345"></a>
+							<div class="carousel-caption">
+							  <h3>The Girl Who Can See Smells</h3>
+							  <p>The Girl Who Can See Smells ("Cô Gái Thấy Mùi Hương") là câu chuyện kể về người cảnh sát Choi Moo Gak trở nên vô cảm sau cái chết bi thương của em gái. Sau đó anh gặp một phụ nữ tên Oh Cho Rim người có giác quan thứ sáu đã thoát chết một cách thần kỳ trong cùng một vụ án với em gái anh. Cả hai bị cuốn vào quá trình điều tra tìm kiếm tên sát thủ máu lạnh đầy thử thách nhưng không kém phần hấp dẫn.</p>
+							</div>
+						  </div>
+					  
+						</div>
+					
+						<!-- Left and right controls -->
+						<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+						  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						  <span class="sr-only">Previous</span>
+						</a>
+						<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+						  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						  <span class="sr-only">Next</span>
+						</a>
+					  </div>
+					</div> 					
+				</div>
+				<!-- SLIDES | END -->
+				<!-- NAVIGATION & SEARCH -->
+				<div id="mNav_Search"><!-- InstanceBeginEditable name="navigation" -->
+				  <div id="mNav"> <span class="glyphicon glyphicon-record"></span> Navigation: <span style="color: #906">Trang chủ</span> </div>
+				<!-- InstanceEndEditable -->
+				  <div id="mSearch">
+							<div class="form-group">
+								<input type="text" placeholder="Nhập từ khóa tìm kiếm..." class="form-control" id="txtSearch">
+								<a href="#" id="btnSearch" class="btn btn-info btn-lg">
+									<span class="glyphicon glyphicon-search"></span> Tìm kiếm 
+								</a>
+							</div>
+						</div>					
+					</div>
+				<!-- NAVIGATION & SEARCH | END -->
+			</div>		
+			<!-- HEADER | END-->
+			<div class="clearfix"></div>
+			<!-- CONTENT -->
+			<div id="mContent">
+				<!-- LEFT CONTETN -->
+				<div id="mLeft_content">
+					<!-- FILM MENU -->
+					<ul class="nav nav-pills nav-stacked">
+                        <li id="diskfilm" class="active"><a>Đĩa phim</a></li>
+                        <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Phim lẻ <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="list-product.html">Hành động</a></li>
+                            <li><a href="list-product.html">Kiếm hiệp</a></li>
+                            <li><a href="list-product.html">Hình sự</a></li>  
+                            <li><a href="list-product.html">Tình cảm</a></li>
+                            <li><a href="list-product.html">Hài</a></li>     
+                            <li><a href="list-product.html">Ma - kinh dị</a></li>                   
+                          </ul>
+                        </li>
+                        <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Phim bộ <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="list-product.html">Ấn Độ</a></li>
+                            <li><a href="list-product.html">Hồng Kông</a></li>
+                            <li><a href="list-product.html">Trung Quốc</a></li>  
+                            <li><a href="list-product.html">Âu - Mỹ</a></li>
+                            <li><a href="list-product.html">Hàn Quốc</a></li>     
+                            <li><a href="list-product.html">Nhật Bản</a></li>  
+                            <li><a href="list-product.html">Việt Nam</a></li>  
+                            <li><a href="list-product.html">Châu Á khác</a></li>                 
+                          </ul>
+                        </li>
+                      </ul>
+					<!-- MUSIC MENU -->
+					<ul class="nav nav-pills nav-stacked">
+                        <li id="diskmusic" class="active"><a>Đĩa nhạc</a></li>
+                        <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Việt Nam <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="list-product.html">Nhạc trẻ</a></li>  
+                            <li><a href="list-product.html">Nhạc trữ tình</a></li> 
+                            <li><a href="list-product.html">Rock Việt</a></li>  
+                            <li><a href="list-product.html">Rap/HipHop Việt</a></li>    
+                            <li><a href="list-product.html">Nhạc Trịnh</a></li>
+                            <li><a href="list-product.html">Nhạc Thiếu Nhi</a></li>
+                            <li><a href="list-product.html">Dance Việt</a></li>             
+                          </ul>
+                        </li>
+                        <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Âu Mỹ <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="list-product.html">Pop</a></li> 
+                            <li><a href="list-product.html">Rock</a></li>
+                            <li><a href="list-product.html">Rap/HipHop</a></li>   
+                            <li><a href="list-product.html">Country</a></li>    
+                            <li><a href="list-product.html">Electronic/Dance</a></li> 
+                            <li><a href="list-product.html">R&B/Soul</a></li> 
+                            <li><a href="list-product.html">Audiophile</a></li>         
+                          </ul>
+                        </li>
+                        <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Châu Á <span class="caret"></span></a>
+                          <ul class="dropdown-menu">           
+                            <li><a href="list-product.html">Hàn Quốc</a></li>
+                            <li><a href="list-product.html">Nhật Bản</a></li>
+                            <li><a href="list-product.html">Hoa Ngữ</a></li>
+                            <li><a href="list-product.html">Thái Lan</a></li>                
+                          </ul>
+                        </li>
+                        <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hòa tấu <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="list-product.html">Classical</a></li> 
+                            <li><a href="list-product.html">Piano</a></li>
+                            <li><a href="list-product.html">Guitar</a></li>
+                            <li><a href="list-product.html">Violin</a></li>
+                            <li><a href="list-product.html">Cello</a></li>
+                            <li><a href="list-product.html">Saxophone</a></li>
+                            <li><a href="list-product.html">Nhạc Cụ Dân Tộc</a></li>               
+                          </ul>
+                        </li>
+                      </ul>
+					<!-- GAME MENU -->
+					<ul class="nav nav-pills nav-stacked">
+                        <li id="diskDVD" class="active"><a>Đĩa DVD</a></li>
+                        <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Đĩa game <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="list-product.html">Hành động</a></li>  
+                            <li><a href="list-product.html">Nhập vai</a></li> 
+                            <li><a href="list-product.html">Chiến thuật</a></li>  
+                            <li><a href="list-product.html">Thể thao</a></li>    
+                            <li><a href="list-product.html">Đua xe</a></li>          
+                          </ul>
+                        </li>
+                        <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Đĩa phần mềm <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="list-product.html">Windows</a></li> 
+                            <li><a href="list-product.html">Mac OS</a></li>
+                            <li><a href="list-product.html">Linus</a></li>           
+                          </ul>
+                        </li>
+                      </ul>
+				</div>
+				<!-- LEFT CONTETN | END -->
+				<!-- RIGHT CONTETN --><!-- InstanceBeginEditable name="content" -->
+				<div id="mRight_content">
+				  <!-- SECTION PHIM DANG HOT-->
+				  <div class="section">
+				    <h2 class="title_section"> <a href="list-product.html">PHIM ĐANG HOT <span class="glyphicon glyphicon-chevron-right"></span></a> </h2>
+				    <!-- ROW -->
+				    <div class="row">
+				      <!-- ITEM DISC -->
+				      <div class="item_disc">
+				        <div class="item_title">Avengers: Age of Ultron</div>
+				        <div class="item_image"> <a href="#"> <img src="img/Avengers%20Age%20of%20Ultron.jpg" alt="Avengers: Age of Ultron" /> </a> </div>
+				        <div class="item_price">Giá: 50.000đ</div>
+				        <div class="item_bottom">
+				          <div id="btnAdd" class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào giở hàng"> <span class="glyphicon glyphicon-shopping-cart"></span> </div>
+				          <div id="btnLike" class="btn btn-danger btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào danh sách yêu thích"> <span class="glyphicon glyphicon-heart"></span> </div>
+				          <button class="btnDetail btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Xem chi tiết"> <span class="glyphicon glyphicon-play"></span> </button>
+			            </div>
+			          </div>
+				      <!-- ITEM DISC -->
+				      <div class="item_disc">
+				        <div class="item_title">Kingsman: The Secret Service</div>
+				        <div class="item_image"> <a href="#"> <img src="img/Kingsman%20The%20Secret%20Service.jpg" width="150" height="195" alt="Kingsman: The Secret Service" /> </a> </div>
+				        <div class="item_price">Giá: 55.000đ</div>
+				        <div class="item_bottom">
+				          <div id="btnAdd" class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào giở hàng"> <span class="glyphicon glyphicon-shopping-cart"></span> </div>
+				          <div id="btnLike" class="btn btn-danger btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào danh sách yêu thích"> <span class="glyphicon glyphicon-heart"></span> </div>
+				          <button class="btnDetail btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Xem chi tiết"> <span class="glyphicon glyphicon-play"></span> </button>
+			            </div>
+			          </div>
+				      <!-- ITEM DISC -->
+				      <div class="item_disc">
+				        <div class="item_title">Fast And Furious 7</div>
+				        <div class="item_image"> <a href="#"> <img src="img/Fast%20And%20Furious%207.jpg" width="150" height="195" alt="Fast And Furious 7" /> </a> </div>
+				        <div class="item_price">Giá: 155.000đ</div>
+				        <div class="item_bottom">
+				          <div id="btnAdd" class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào giở hàng"> <span class="glyphicon glyphicon-shopping-cart"></span> </div>
+				          <div id="btnLike" class="btn btn-danger btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào danh sách yêu thích"> <span class="glyphicon glyphicon-heart"></span> </div>
+				          <button class="btnDetail btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Xem chi tiết"> <span class="glyphicon glyphicon-play"></span> </button>
+			            </div>
+			          </div>
+				      <!-- ITEM DISC -->
+				      <div class="item_disc">
+				        <div class="item_title">Hồn Ma Khó Tính</div>
+				        <div class="item_image"> <a href="#"> <img src="img/Hon%20ma%20kho%20tinh.jpg" width="150" height="195" alt="Hồn Ma Khó Tính" /> </a> </div>
+				        <div class="item_price">Giá: 55.000đ</div>
+				        <div class="item_bottom">
+				          <div id="btnAdd" class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào giở hàng"> <span class="glyphicon glyphicon-shopping-cart"></span> </div>
+				          <div id="btnLike" class="btn btn-danger btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào danh sách yêu thích"> <span class="glyphicon glyphicon-heart"></span> </div>
+				          <button class="btnDetail btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Xem chi tiết"> <span class="glyphicon glyphicon-play"></span> </button>
+			            </div>
+			          </div>
+			        </div>
+				    <!-- ROW -->
+				    <div class="row">
+				      <!-- ITEM DISC -->
+				      <div class="item_disc">
+				        <div class="item_title">Người Hùng Tia Chớp 1</div>
+				        <div class="item_image"> <a href="#"> <img src="img/Nguoi%20hung%20tia%20chop%201.jpg" width="150" height="195" alt="Người Hùng Tia Chớp 1" /> </a> </div>
+				        <div class="item_price">Giá: 35.000đ</div>
+				        <div class="item_bottom">
+				          <div id="btnAdd" class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào giở hàng"> <span class="glyphicon glyphicon-shopping-cart"></span> </div>
+				          <div id="btnLike" class="btn btn-danger btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào danh sách yêu thích"> <span class="glyphicon glyphicon-heart"></span> </div>
+				          <button class="btnDetail btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Xem chi tiết"> <span class="glyphicon glyphicon-play"></span> </button>
+			            </div>
+			          </div>
+				      <!-- ITEM DISC -->
+				      <div class="item_disc">
+				        <div class="item_title">Kiếm Rồng</div>
+				        <div class="item_image"> <a href="#"> <img src="img/Kiem%20rong.jpg" width="150" height="195" alt="Kiếm Rồng" /> </a> </div>
+				        <div class="item_price">Giá: 55.000đ</div>
+				        <div class="item_bottom">
+				          <div id="btnAdd" class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào giở hàng"> <span class="glyphicon glyphicon-shopping-cart"></span> </div>
+				          <div id="btnLike" class="btn btn-danger btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào danh sách yêu thích"> <span class="glyphicon glyphicon-heart"></span> </div>
+				          <button class="btnDetail btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Xem chi tiết"> <span class="glyphicon glyphicon-play"></span> </button>
+			            </div>
+			          </div>
+				      <!-- ITEM DISC -->
+				      <div class="item_disc">
+				        <div class="item_title">Quý Tộc Săn Tranh</div>
+				        <div class="item_image"> <a href="#"> <img src="img/Quy%20toc%20san%20tranh.jpg" width="150" height="195" alt="Quý Tộc Săn Tranh" /> </a> </div>
+				        <div class="item_price">Giá: 55.000đ</div>
+				        <div class="item_bottom">
+				          <div id="btnAdd" class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào giở hàng"> <span class="glyphicon glyphicon-shopping-cart"></span> </div>
+				          <div id="btnLike" class="btn btn-danger btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào danh sách yêu thích"> <span class="glyphicon glyphicon-heart"></span> </div>
+				          <button class="btnDetail btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Xem chi tiết"> <span class="glyphicon glyphicon-play"></span> </button>
+			            </div>
+			          </div>
+				      <!-- ITEM DISC -->
+				      <div class="item_disc">
+				        <div class="item_title">Đứa con thứ 7</div>
+				        <div class="item_image"> <a href="#"> <img src="img/Đua%20con%20thu%207.jpg" width="150" height="195" alt="Đứa con thứ 7" /> </a> </div>
+				        <div class="item_price">Giá: 65.000đ</div>
+				        <div class="item_bottom">
+				          <div id="btnAdd" class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào giở hàng"> <span class="glyphicon glyphicon-shopping-cart"></span> </div>
+				          <div id="btnLike" class="btn btn-danger btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào danh sách yêu thích"> <span class="glyphicon glyphicon-heart"></span> </div>
+				          <button class="btnDetail btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Xem chi tiết"> <span class="glyphicon glyphicon-play"></span> </button>
+			            </div>
+			          </div>
+			        </div>
+				    <a class="see_more_a_link" href="list-product.html">Xem thêm...</a> </div>
+				  <!-- SECTION NHAC DANG HOT-->
+				  <div class="section">
+				    <h2 class="title_section"> <a href="list-product.html">NHẠC ĐANG HOT <span class="glyphicon glyphicon-chevron-right"></span></a> </h2>
+				    <!-- ROW -->
+				    <div class="row">
+				      <!-- ITEM DISC -->
+				      <div class="item_disc">
+				        <div class="item_title">Team Isaac</div>
+				        <div class="item_image"> <a href="#"> <img src="img/Team%20Isaac.jpg" width="200" height="200" alt="Team Isaac" /> </a> </div>
+				        <div class="item_price">Giá: 35.000đ</div>
+				        <div class="item_bottom">
+				          <div id="btnAdd" class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào giở hàng"> <span class="glyphicon glyphicon-shopping-cart"></span> </div>
+				          <div id="btnLike" class="btn btn-danger btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào danh sách yêu thích"> <span class="glyphicon glyphicon-heart"></span> </div>
+				          <button class="btnDetail btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Xem chi tiết"> <span class="glyphicon glyphicon-play"></span> </button>
+			            </div>
+			          </div>
+				      <!-- ITEM DISC -->
+				      <div class="item_disc">
+				        <div class="item_title">Anh Đang Yêu -Khánh Đơn</div>
+				        <div class="item_image"> <a href="#"> <img src="img/Anh%20dang%20yeu.jpg" width="200" height="200" alt="Anh Đang Yêu -Khánh Đơn" /> </a> </div>
+				        <div class="item_price">Giá: 55.000đ</div>
+				        <div class="item_bottom">
+				          <div id="btnAdd" class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào giở hàng"> <span class="glyphicon glyphicon-shopping-cart"></span> </div>
+				          <div id="btnLike" class="btn btn-danger btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào danh sách yêu thích"> <span class="glyphicon glyphicon-heart"></span> </div>
+				          <button class="btnDetail btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Xem chi tiết"> <span class="glyphicon glyphicon-play"></span> </button>
+			            </div>
+			          </div>
+				      <!-- ITEM DISC -->
+				      <div class="item_disc">
+				        <div class="item_title">Sexy Night -Hoàng Rapper...</div>
+				        <div class="item_image"> <a href="#"> <img src="img/Sexy%20Night.jpg" width="200" height="200" alt="Sexy Night -Hoàng Rapper ft. Tronie Ngô" /> </a> </div>
+				        <div class="item_price">Giá: 35.000đ</div>
+				        <div class="item_bottom">
+				          <div id="btnAdd" class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào giở hàng"> <span class="glyphicon glyphicon-shopping-cart"></span> </div>
+				          <div id="btnLike" class="btn btn-danger btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào danh sách yêu thích"> <span class="glyphicon glyphicon-heart"></span> </div>
+				          <button class="btnDetail btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Xem chi tiết"> <span class="glyphicon glyphicon-play"></span> </button>
+			            </div>
+			          </div>
+				      <!-- ITEM DISC -->
+				      <div class="item_disc">
+				        <div class="item_title">All The Love -Giang Hồng Ngọc</div>
+				        <div class="item_image"> <a href="#"> <img src="img/All%20The%20Love.jpg" width="200" height="200" alt="All The Love -Giang Hồng Ngọc" /> </a> </div>
+				        <div class="item_price">Giá: 65.000đ</div>
+				        <div class="item_bottom">
+				          <div id="btnAdd" class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào giở hàng"> <span class="glyphicon glyphicon-shopping-cart"></span> </div>
+				          <div id="btnLike" class="btn btn-danger btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào danh sách yêu thích"> <span class="glyphicon glyphicon-heart"></span> </div>
+				          <button class="btnDetail btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Xem chi tiết"> <span class="glyphicon glyphicon-play"></span> </button>
+			            </div>
+			          </div>
+			        </div>
+				    <div class="row">
+				      <!-- ITEM DISC -->
+				      <div class="item_disc">
+				        <div class="item_title">Get High -Lưu Hương Giang</div>
+				        <div class="item_image"> <a href="#"> <img src="img/Get%20High%20(Single).jpg" width="200" height="200" alt="Get High (Single) -Lưu Hương Giang" /> </a> </div>
+				        <div class="item_price">Giá: 35.000đ</div>
+				        <div class="item_bottom">
+				          <div id="btnAdd" class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào giở hàng"> <span class="glyphicon glyphicon-shopping-cart"></span> </div>
+				          <div id="btnLike" class="btn btn-danger btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào danh sách yêu thích"> <span class="glyphicon glyphicon-heart"></span> </div>
+				          <button class="btnDetail btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Xem chi tiết"> <span class="glyphicon glyphicon-play"></span> </button>
+			            </div>
+			          </div>
+				      <!-- ITEM DISC -->
+				      <div class="item_disc">
+				        <div class="item_title">Jackie-Ciara</div>
+				        <div class="item_image"> <a href="#"> <img src="img/Jackie%20(Deluxe%20Edition)%20-Ciara.jpg" width="200" height="200" alt="Jackie (Deluxe Edition) -Ciara" /> </a> </div>
+				        <div class="item_price">Giá: 55.000đ</div>
+				        <div class="item_bottom">
+				          <div id="btnAdd" class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào giở hàng"> <span class="glyphicon glyphicon-shopping-cart"></span> </div>
+				          <div id="btnLike" class="btn btn-danger btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào danh sách yêu thích"> <span class="glyphicon glyphicon-heart"></span> </div>
+				          <button class="btnDetail btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Xem chi tiết"> <span class="glyphicon glyphicon-play"></span> </button>
+			            </div>
+			          </div>
+				      <!-- ITEM DISC -->
+				      <div class="item_disc">
+				        <div class="item_title">The 1st Mini Album ‘EOEO’</div>
+				        <div class="item_image"> <a href="#"> <img src="img/The%201st%20Mini%20Album.jpg" width="200" height="200" alt="The 1st Mini Album ‘EOEO’ " /> </a> </div>
+				        <div class="item_price">Giá: 35.000đ</div>
+				        <div class="item_bottom">
+				          <div id="btnAdd" class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào giở hàng"> <span class="glyphicon glyphicon-shopping-cart"></span> </div>
+				          <div id="btnLike" class="btn btn-danger btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào danh sách yêu thích"> <span class="glyphicon glyphicon-heart"></span> </div>
+				          <button class="btnDetail btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Xem chi tiết"> <span class="glyphicon glyphicon-play"></span> </button>
+			            </div>
+			          </div>
+				      <!-- ITEM DISC -->
+				      <div class="item_disc">
+				        <div class="item_title">Một Trái Tim Rất Yêu</div>
+				        <div class="item_image"> <a href="#"> <img src="img/Mot%20trai%20tim%20rat%20yeu.jpg" width="200" height="200" alt="Một Trái Tim Rất Yêu" /> </a> </div>
+				        <div class="item_price">Giá: 65.000đ</div>
+				        <div class="item_bottom">
+				          <div id="btnAdd" class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào giở hàng"> <span class="glyphicon glyphicon-shopping-cart"></span> </div>
+				          <div id="btnLike" class="btn btn-danger btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào danh sách yêu thích"> <span class="glyphicon glyphicon-heart"></span> </div>
+				          <button class="btnDetail btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Xem chi tiết"> <span class="glyphicon glyphicon-play"></span> </button>
+			            </div>
+			          </div>
+			        </div>
+				    <a class="see_more_a_link" href="list-product.html">Xem thêm...</a> </div>
+			    </div>
+				<!-- InstanceEndEditable --><!-- RIGHT CONTETN | END -->
+			</div>
+			<!-- CONTENT | END-->
+			
+			<!-- FOOTER -->
+			<div id="mFooter">
+				<!-- SHARE ON -->
+				<div id="mShare_on">
+					<ui>
+                    	<li><strong>Share on </strong></li>
+                        <li>
+                        	<a href="https://www.facebook.com/">
+                            	<img src="img/fb.png" alt="facebook" width="58" height="58">
+                            </a>
+                        </li>
+                        <li>
+                        	<a href="#">
+                            	<img src="img/twitter.png" alt="twitter" width="58" height="58">
+                            </a>
+                        </li>
+                        <li>
+                        	<a href="#">
+                            	<img src="img/gmail.png" alt="gmail" width="58" height="58">
+                            </a>
+                        </li>
+                        <li>
+                        	<a href="#">
+                            	<img src="img/linkdin.png" alt="linkedin" width="58" height="58">
+                            </a>
+                        </li>
+                        <li>
+                        	<a href="#">
+                            	<img src="img/p.png" alt="pinterest" width="58" height="58">
+                            </a>
+                        </li>
+                    </ui>
+				</div>
+				<!-- SHARE | END -->
+				<!-- CONTACT -->
+				<div id="mContact_us" class="container">
+				<div id="mContact1">
+					<span class="img_footer"><img src="img/envelop-icon.png"></span>
+                    <p class="title_footer"><img src="img/email-hd.png">
+                    	<br><br>
+                    	<a href="mailto:lehoanhao.94@gmail.com"><span id="mail_name">
+                            lehoanhao.94@gmail.com 
+                            <br> 
+                            mr.cnguyen94@gmail.com
+                        </span></a>
+                    </p>
+				</div>
+				<div id="mContact2">	
+					<span class="img_footer"><img src="img/mobile-icon.png"></span>
+                    <p class="title_footer"><img src="img/callus-hd.png">
+                    	<br><br>
+                    	<span id="mail_name">
+                        	+84962096905
+                            <br>
+                            +841657674849
+                        </span>
+                    </p>
+				</div>
+				<div id="mContact3">	
+					<span class="img_footer"><img src="img/location-icon.png"></span>
+                    <p class="title_footer"><img src="img/visitus-hd.png">
+                    	<br><br>
+                    	<span id="mail_name">220/125P Lê Văn Sỹ, P14, Q3 <br> TP Hồ Chí Minh, Việt Nam</span>
+                    </p>
+				</div>
+				</div>
+				<!-- CONTACT | END -->
+				<!-- MENU FOOTER -->
+				<div id="mMenu_footer" class="container">
+					<ui>
+                    	<li>
+                        	<h3>TRANG CHỦ</h3>
+                            <ui>
+                            	<li><a href="#">Phim đang hot</a></li>
+                                <li><a href="#">Nhạc đang hot</a></li>
+                                <li><a href="#">Đĩa mới ra</a></li>
+                            </ui>
+                        </li>
+                    </ui>
+                    
+                    <ui>
+                        <li>
+                        	<h3>ĐĨA PHIM</h3>
+                            <ui>
+                            	<li><a href="#">Phim lẻ</a></li>
+                                <li><a href="#">Phim bộ</a></li>                               
+                            </ui>
+                        </li>
+                    </ui>
+                    <ui>
+                        <li>
+                        	<h3>ĐĨA NHẠC</h3>
+                            <ui>
+                            	<li><a href="#">Việt Nam</a></li>
+                                <li><a href="#">Châu Á</a></li>
+                                <li><a href="#">Âu Mỹ</a></li>
+                                <li><a href="#">Hòa tấu</a></li>
+                            </ui>
+                        </li>
+                    </ui>
+                    <ui>
+                        <li>
+                        	<h3>WHO WE ARE</h3>
+                            <ui>
+                            	<li><a href="#">Lê Hoàn Hảo</a></li>
+                                <li><a href="#">Nguyễn Thanh Cường</a></li>
+                                <li><a href="https://www.facebook.com/bungmoxucxichpepsicoca">Facebook của Hảo</a></li>
+                                <li><a href="https://www.facebook.com/bungmoxucxichpepsicoca">Facebook của Cường</a></li>
+                            </ui>
+                        </li>
+                    </ui>
+				</div>
+				<!-- MENU FOOTER | END -->
+				<!-- COPYRIGHT -->
+				<div id="mCopyright" class="container">
+					<img id="logo_footer" src="img/logo_footer.gif">
+                    <span id="copyright">
+                    	Copyrights © 2015 World of discs
+                        <br>
+                        Thế giới băng đĩa
+                        <br>
+                        Liên hệ quảng cáo: 0962096905
+                    </span>
+				</div>
+				<!-- COPYRIGHT | END -->
+			</div>
+			<!-- FOOTER | END-->
+		</div>
+		<!-- MAIN | END-->
+		
+		 <!-- SHOPPING CART -->
+		<div class="modal fade" id="mShopping_cart" role="dialog">
+            <div class="modal-dialog">
+            
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header" style="padding:35px 50px;">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4><span class="glyphicon glyphicon-shopping-cart"></span> Giỏ hàng</h4>
+                </div>
+                <!-- Modal body-->
+                <div class="modal-body" style="padding:40px 50px;">
+                	 <table id="tblShopping_Cart" class="table table-bordered">
+                            <thead>
+                              <tr>
+                                <th>STT</th>
+                                <th>Bìa đĩa</th>
+                                <th>Tiêu đề</th>
+                                <th>Giá</th>
+                                <th>SL</th>
+                                <th>Thành tiền</th>
+                                <th>Hủy</th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>1</td>
+                                <td class="img_history"><img src="img/Avengers Age of Ultron.jpg"></td>
+                                <td>Avengers Age of Ultron</td>
+                                <td>50.000</td>
+                                <td><input id="txtSL_Shopping_cart" type="number" class="form-control"></td>
+                                <td>50.000</td>
+                                <td><button id="btnDel_producr_cart" onClick="deleteProductCart()" class="btn btn-danger">Bỏ</button></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove"></span> Đóng
+                    </button>
+                    <button id="btnBuy" class="btn btn-success btn-default pull-right" data-dismiss="modal">
+                    	<span class="glyphicon glyphicon-usd"></span> Mua hàng
+                    </button>
+
+                </div>
+              </div>
+              
+            </div>
+        </div> 
+        <!-- SHOPPING CART | END -->
+        
+		<!-- REGISTER -->
+		<div class="modal fade" id="Register_box" role="dialog">
+            <div class="modal-dialog">       
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header" style="padding:35px 50px;">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4><span class="glyphicon glyphicon-user"></span> Đăng ký</h4>
+                </div>
+                <!-- Modal body-->
+                <div class="modal-body" style="padding:40px 50px;">
+                	<form id="Registerbox">
+                        <div class="input-group input-group-sm">
+                          <span class="input-group-addon" id="sizing-addon3">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                          </span>
+                          <input type="text" class="form-control" placeholder="Họ tên"required aria-describedby="sizing-addon3">
+                        </div>    
+                        <br>
+                        <div class="input-group input-group-sm">
+                          <span class="input-group-addon" id="sizing-addon3">
+                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                          </span>
+                          <input type="email" class="form-control" placeholder="Email"required aria-describedby="sizing-addon3">
+
+                        </div> 
+                        <br>
+                        <div class="input-group input-group-sm">
+                          <span class="input-group-addon" id="sizing-addon3">
+                            <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                          </span>
+                          <input type="password" class="form-control" placeholder="Mật khảu"required aria-describedby="sizing-addon3">
+
+                        </div>
+                        <br>
+                        <div class="input-group input-group-sm">
+                          <span class="input-group-addon" id="sizing-addon3">
+                            <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                          </span>
+                          <input type="password" class="form-control" placeholder="Nhập lại mật khảu"required aria-describedby="sizing-addon3">
+                        </div>
+                        <br>
+                        Tôi đã đọc và đồng ý với điều khoản sử dụng của <a href="#">WorldOfDiscs</a> 
+                        <br>                    
+                        <input type="submit" name="submit" id="btnRegister_form" value="Hoàn thành" class="btn btn-primary pull-right">   
+                    </form>     	
+                </div>
+              </div>
+              
+            </div>
+        </div> 
+        <!-- REGISTER | END -->
+        
+        <!-- FEEDBACK -->
+		<div class="modal fade" id="Feedback_box" role="dialog">
+            <div class="modal-dialog">       
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header" style="padding:35px 50px;">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4><span class="glyphicon glyphicon-user"></span> Góp ý</h4>
+                </div>
+                <!-- Modal body-->
+                <div class="modal-body" style="padding:40px 50px;">
+                	<form id="Registerbox">
+						<div class="input-group input-group-sm">
+                          <span class="input-group-addon" id="sizing-addon3">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                          </span>
+                          <input type="text" class="form-control" placeholder="Họ tên"required aria-describedby="sizing-addon3">
+                        </div>    
+                        <br>
+                        <div class="input-group input-group-sm">
+                          <span class="input-group-addon" id="sizing-addon3">
+                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                          </span>
+                          <input type="email" class="form-control" placeholder="Địa chỉ Email"required aria-describedby="sizing-addon3">
+                        </div>    
+                        <br>
+                        <div class="input-group input-group-sm">
+                          <span class="input-group-addon" id="sizing-addon3">
+                            <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+                          </span>
+                          <input type="tel" class="form-control" placeholder="Số điện thoại" aria-describedby="sizing-addon3">
+                        </div>    
+                        <br>
+                        <div class="input-group input-group-sm">
+                        	<span class="input-group-addon" id="sizing-addon3">
+                            	<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                            </span>
+                           	<textarea class="form-control" id="message" placeholder="Gửi lời góp ý của bạn, và chúng tôi sẽ trả lời bạn trong vòng 2 ngày."required ></textarea>
+                        </div>
+                        <br>
+                        <input type="submit" name="submit" id="btnFeedback_form" value="Gửi" class="btn btn-primary pull-right">	                        <br>
+                    </form>     	
+                </div>
+              </div>
+              
+            </div>
+        </div> 
+        <!-- FEEDBACK | END -->
+		        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/my-js.js"></script>
+    </body>
+<!-- InstanceEnd --></html>

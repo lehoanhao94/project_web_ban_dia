@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_TopBarLayout.cshtml";
+}
+    <link href="~/Content/UserCssLayout/LoginContent.css" rel="stylesheet" />
+@section Content{
+    <div id="Login_content">
+        <h4>Đăng nhập</h4>
+        <div id="lblErrorLogin">@ViewBag.ErrorLogin</div>
+        <form class="navbar-form" action="/User/Login" method="post">
+            <input name="Email" type="email" placeholder="Email" required class="form-control" />
+            <input name="Password" type="password" placeholder="Mật khẩu" required class="form-control" />
+            <a href="/User/ForgotPassword">Quên mật khẩu?</a>
+            <button id="btnLogin" type="submit" class="btn btn-primary">Đăng nhập</button>
+        </form>       
+    </div>
+}
+
+

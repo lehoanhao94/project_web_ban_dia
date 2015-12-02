@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ca77a0b1b3a444ffa45fc400d9f63bde" Name="Diagram1">
+        <EntityTypeShape EntityType="WorldOfDiscsModel.Category" Width="1.5" PointX="0.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorldOfDiscsModel.Detail_Order" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorldOfDiscsModel.Direct_Payment_Method" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorldOfDiscsModel.Disc" Width="1.5" PointX="3" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorldOfDiscsModel.Forum_Comment" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorldOfDiscsModel.Forum_Post" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorldOfDiscsModel.Group_Category" Width="1.5" PointX="1.5" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorldOfDiscsModel.Order" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorldOfDiscsModel.Payment_Method" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorldOfDiscsModel.sysdiagram" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WorldOfDiscsModel.User" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="WorldOfDiscsModel.FK_Category_Group_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="WorldOfDiscsModel.FK_Discs_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="WorldOfDiscsModel.FK_Detail_Order_Discs" ManuallyRouted="false" />
+        <AssociationConnector Association="WorldOfDiscsModel.FK_Detail_Order_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="WorldOfDiscsModel.FK_Discs_Group_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="WorldOfDiscsModel.FK_Forum_Comment_Forum_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="WorldOfDiscsModel.FK_Forum_Comment_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="WorldOfDiscsModel.FK_Forum_Post_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="WorldOfDiscsModel.FK_Order_Payment_Method" ManuallyRouted="false" />
+        <AssociationConnector Association="WorldOfDiscsModel.FK_Order_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="WorldOfDiscsModel.FK_Direct_Payment_Method_Order" />
+        <EntityTypeShape EntityType="WorldOfDiscsModel.Feedback" Width="1.5" PointX="3" PointY="11.25" />
+        <EntityTypeShape EntityType="WorldOfDiscsModel.ReplyFeedback" Width="1.5" PointX="5.25" PointY="11.375" />
+        <AssociationConnector Association="WorldOfDiscsModel.FK_Feedback_Users" />
+        <AssociationConnector Association="WorldOfDiscsModel.FK_ReplyFeedback_Feedback" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

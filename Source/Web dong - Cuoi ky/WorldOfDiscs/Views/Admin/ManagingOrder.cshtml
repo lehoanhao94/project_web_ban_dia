@@ -1,0 +1,98 @@
+﻿@using WorldOfDiscs.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<Order>
+@{
+    ViewBag.Title = "ManagingOrder";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Function f = new Function();
+}
+<div class="container">
+    <h2>Managing order</h2>
+    <p>View and managing orders</p>
+    @foreach (var order in Model)
+    {
+        <div class="box box-info collapsed-box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Orders @order.Id - ID User: @order.Id_User - Date: @order.Date.Value.ToString("dd/MM/yyyy")</h3>
+                <div class="box-tools pull-right">
+                    Total money: @String.Format("{0:0,0}", @f.TotalMoneyOrder((int)order.Id)) VNĐ - 
+                    @{
+                    if (order.Status == 1 && order.IsPaid == 1)
+                    {
+                        <span class="label label-success">Done</span>
+                    }
+                    if (order.Status == 1 && order.IsPaid == 0)
+                    {
+                        <span class="label label-warning">Cancel</span>
+                    }
+                    if (order.Status == 0 && order.IsPaid == 0)
+                    {
+                        <span class="label label-danger">Pending</span>
+                    }
+                    }
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+                </div>
+            </div><!-- /.box-header -->
+            <div class="box-body">               
+                <div class="table-responsive">
+                    <table class="table no-margin">
+                        <thead>
+                            <tr>
+                                <th>Id disc</th>
+                                <th>Title</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var detail in (List<Detail_Order>)ViewData["lstdeorder"])
+                            {
+                                if (detail.Id_Order == order.Id)
+                                {
+                                    <tr>
+                                        <td>@detail.Id_Disc</td>
+                                        <td>@f.GetTitleDisc((int)detail.Id_Disc)</td>
+                                        <td>@String.Format("{0:0,0}", detail.Price) VNĐ</td>
+                                        <td>@detail.Quantity</td>
+                                        <td>@String.Format("{0:0,0}", detail.Price * detail.Quantity) VNĐ</td>
+                                    </tr>                                   
+                                }
+                            }
+                            <tr>
+                                <td colspan="2" style="text-align: right"><strong>TOTAL MONEY:</strong>  </td>
+                                <td colspan="3">@String.Format("{0:0,0}", @f.TotalMoneyOrder((int)order.Id)) VNĐ</td>
+                            </tr>
+                            @foreach(var dpm in (List<Direct_Payment_Method>)ViewData["lstdpm"])
+                            {
+                                if(dpm.Id_Order == order.Id)
+                                {
+                                    <tr>
+                                        <td colspan="2" style="text-align: right"><strong>SHIPPING ADDRESS: </strong> </td>
+                                        <td colspan="3">@dpm.Shipping_Address</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="text-align: right"><strong>CONSIGNEE INFORMATION: </strong> </td>
+                                        <td colspan="3">
+                                            Fullname: @f.GetNameUser((int)order.Id_User)
+                                            <br />
+                                            Mobile: @dpm.Mobile
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div><!-- /.table-responsive -->
+            </div><!-- /.box-body -->
+            <div class="box-footer clearfix">
+                <a href="/ManagingOrder/Done?Id_Order=@order.Id" class="btn btn-sm btn-info btn-success pull-left">DONE</a>
+                <a href="/ManagingOrder/Cancel?Id_Order=@order.Id" class="btn btn-sm btn-danger btn-flat pull-right">CANCEL</a>
+            </div><!-- /.box-footer -->
+        </div>
+    }
+    @*Tạo link liên kết các trang*@
+    <div class="mPagination">@Html.PagedListPager(Model, page => Url.Action("ManagingOrder", "Admin", new { page = page }))</div>  
+</div>
+
+

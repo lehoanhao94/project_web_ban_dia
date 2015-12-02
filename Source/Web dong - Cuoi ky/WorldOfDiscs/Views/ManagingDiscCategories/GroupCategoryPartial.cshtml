@@ -1,0 +1,53 @@
+﻿@using WorldOfDiscs.Models
+@model List<Group_Category>
+
+
+    <h2>Managing Group Category</h2>
+    <p>Add, Delete, and Modify Group Category in WOD</p>
+    @if (Session["ErrorGC"] != null)
+    {
+        <div class="alert alert-danger fade in" style="text-align: center;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            @Session["ErrorGC"].ToString()
+        </div>
+    }
+    @if (@Session["SuccessGC"] != null)
+    {
+        <div class="alert alert-success fade in" style="text-align: center">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            @Session["SuccessGC"].ToString()
+        </div>
+    }
+    @using (Html.BeginForm("CreateGC", "ManagingDiscCategories"))
+    { 
+        <button type="submit" class="btnCreate btn btn-success">Create</button>
+        <input type="text" name="txtName" required class="txtCreate form-control" /> 
+    }
+      
+    <div class="clearfix"></div>
+    <br />
+    <table class="table">
+        <thead>
+            <tr class="info">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Control</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var gc in Model)
+            {
+                <tr class="success">
+                    <td>@gc.Id</td>
+                    <td>@gc.Name</td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="/ManagingDiscCategories/UpdateGC?Id_GC=@gc.Id" class="btn btn-primary">Update</a>
+                            <a href="/ManagingDiscCategories/DeleteGC?Id_GC=@gc.Id" class="btn btn-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>   
+

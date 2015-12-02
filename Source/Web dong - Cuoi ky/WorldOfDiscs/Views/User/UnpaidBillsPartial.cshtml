@@ -1,0 +1,89 @@
+﻿@using WorldOfDiscs.Models
+@model List<DiscInBuyingHistory>
+
+<div id="unpaid_bills" class="tab-pane fade">
+    @{
+        if (((List<Order>)ViewData["lstOrder"]).Count == 0 || Model.Count == 0)
+        {
+            <label class="labelNull">Bạn không có hóa đơn nào chưa thanh toán.</label>
+        }
+        else
+        {
+            foreach (var order in (List<Order>)ViewData["lstOrder"])
+            {
+                <ul id="info_bill" class="info_profile">
+                    <li>Mã hóa đơn: <span>HD @order.Id</span></li>
+                    <li>Thời gian đặt: <span>@order.Date.Value.ToString("dd/MM/yyyy hh:mm")</span></li>
+                    <li>Phương thức thanh toán: <span>COD - Thanh toán khi giao hàng.</span></li>
+                </ul>
+
+                <table id="tblUnpaid_bills" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th style="width:200px">Tên đĩa</th>
+                            <th style="width:140px">Giá (VNĐ)</th>
+                            <th style="width: 100px;">Số lượng</th>
+                            <th>Thành tiền (VNĐ)</th>
+                            <th>Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int i = 1;
+                          Decimal totalmoney = 0;}
+                        @foreach (var item in @Model)
+                        {
+                            if (@item.Id_Order == order.Id)
+                            {
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@item.Title</td>
+                                    <td>@String.Format("{0:0,0}", item.Price)</td>
+                                    <td>@item.Number</td>
+                                    <td>@String.Format("{0:0,0}", item.TotalMoney)</td>                               
+                                    @using (Html.BeginForm("DeleteDiscInBill", "User", new { @Id_Order = order.Id , @Id_Disc = item.Id_Disc}))
+                                    {
+                                        <td><button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></td>
+                                    }
+                                </tr>
+                                i++;
+                                totalmoney += @item.TotalMoney;
+                            }
+                        }
+                        <tr>
+                            <td align="right" colspan="4">Tổng cộng (VNĐ):</td>
+                            <td>@String.Format("{0:0,0}", totalmoney)</td>
+                            @using (Html.BeginForm("DeleteBill", "User", new { @Id = order.Id}))
+                            {
+                                <td colspan="2"><button id="btnDel_bill" type="submit" class="btn btn-warning">Hủy hóa đơn</button></td>
+                            }
+                            
+                        </tr>
+                        @foreach (var item in (List<Direct_Payment_Method>)@ViewData["lstDPM"])
+                        {
+                            if ((int)item.Id_Order == order.Id)
+                            {
+                                using (@Html.BeginForm("UpdateBill", "User", new {@Id_Order = order.Id }))
+                                {
+                                    <tr>
+                                        <td align="right" colspan="2">Địa chỉ giao nhận: </td>
+                                        <td colspan="3"><textarea class="form-control" name="txtAdress" style="max-width: 450px;">@item.Shipping_Address</textarea></td>                                  
+                                    </tr>
+                                    <tr>
+                                        <td align="right" colspan="2">Thông tin liên hệ: </td>
+                                        <td colspan="3">
+                                            <p> @Session["LogedUserName"].ToString()</p>
+                                            <p><input name="txtMobile" class="form-control" value=@item.Mobile /> </p>
+                                        </td>
+                                        <td><button type="submit" class="btn btn-primary" style="margin-top: 30px;">Cập nhật thông tin</button></td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+            }
+        }
+}
+  
+</div>

@@ -1,0 +1,36 @@
+﻿@using WorldOfDiscs.Models
+@model Group_Category
+@{
+    ViewBag.Title = "UpdateGC";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <h2>Managing Group Category</h2>
+    <p>Modify Group Category in WOD</p>
+    <br />
+    <table class="table">
+        <thead>
+            <tr class="info">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Control</th>
+            </tr>
+        </thead>
+        <tbody>
+            @using (Html.BeginForm("UpdateGC", "ManagingDiscCategories", FormMethod.Post))
+            {
+                <tr class="success">
+                    <td><input name="Id_GC" class="form-control" type="text" required value="@Model.Id"></td>
+                    <td><input name="Name" class="form-control" type="text" required value="@Model.Name"></td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

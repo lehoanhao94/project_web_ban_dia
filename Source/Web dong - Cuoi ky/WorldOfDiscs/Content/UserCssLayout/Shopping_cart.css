@@ -1,0 +1,46 @@
+.modal-header, h4, .close {
+      background-color: #286090;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+	  }
+	  
+.modal-footer {
+      background-color: #f9f9f9;
+	  }
+	  
+.btn-success {
+      padding: 10px;
+	  }
+	  
+#btnBuy{
+	width: 90px;
+	height: 35px;
+	text-align: center;
+	padding: 0;
+}
+
+
+#mShopping_cart .modal-dialog{
+	width: 750px;
+	height: auto;
+}
+
+#tblShopping_Cart th{
+	text-align: center;	
+}
+
+#tblShopping_Cart td{
+	text-align: center;
+	padding-top: 50px;	
+}
+
+#tblShopping_Cart .img_history{
+	text-align: center;
+	padding-top: 0;	
+}
+
+#tblShopping_Cart{
+    width: 900px;
+    margin-left: 40px;
+}

@@ -1,0 +1,131 @@
+.label_style{
+	font-size: 16px;
+	width: 150px;
+	float: left;
+	height: 34px;
+	padding-top: 5px;
+	font-weight: 200;
+}
+#profile_update{
+	width: 450px;
+	margin: 0px auto;	
+}
+#profile_update .form-control{
+	width: 300px;
+	height: 30px;
+}
+
+#txtDate_In{
+	width: 90px !important;
+	padding-top: 0;
+	float: left;
+	}
+#txtMonth_In{
+	width: 120px !important;
+	padding-top: 0;
+	float: left;
+	}
+#txtYear_In{
+	width: 90px !important;
+	padding-top: 0;
+	float: left;
+	}
+	
+#btnProfile_Update{
+	float: right;
+	margin-top: 40px;
+	margin-bottom: 40px;	
+}
+
+.profile_left .tab-content{
+	width: 880px;	
+	border: 1px solid #337AB7;
+	height: auto;
+	padding-top: 50px;
+	float: left;
+}
+.profile_left{
+	width: 880px;
+	float: left;
+	border: 1px solid #337AB7;
+	margin-top: 50px;
+}
+.profile_right{
+	float: left;
+	width: 270px;	
+	margin-top: 50px;
+}
+
+.title_profile{
+	font-size: 18px;
+	line-height: 30px;
+	display: block;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0px 15px 10px;
+	font-weight: 700;
+	color: #337AB7;
+}
+
+.avatar_profile{
+	position: relative;
+	width: 185px;
+	margin: auto;
+}
+
+.info_profile{
+	text-align: left;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 28px;
+	color: #337AB7;
+	padding-top:20px;
+	padding-left: 20px;
+}
+.info_profile span{
+	font-weight: bold;
+}
+ul{
+	list-style-type: none;
+}
+
+#pass_change{
+	width: 450px;
+	margin: 0px auto;	
+}
+
+#pass_change .form-control{
+	width: 300px;
+	height: 30px;
+}
+
+#btnPass_change{
+	float: right;
+	margin-top: 40px;
+	margin-bottom: 40px;	
+}
+
+#buying_history{
+	width: 777px;
+	margin: 0px auto;
+	height: auto;	
+}
+#tblBuying_history th{
+	text-align: center;	
+}
+
+#tblBuying_history td{
+	text-align: center;
+	padding-top: 90px;	
+}
+
+#tblBuying_history .img_history{
+	text-align: center;
+	padding-top: 0;	
+}
+
+#unpaid_bills{
+	width: 777px;
+	margin: 0px auto;
+	height: auto;	
+}

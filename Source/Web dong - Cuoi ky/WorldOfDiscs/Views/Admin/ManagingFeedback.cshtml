@@ -1,0 +1,69 @@
+﻿@using WorldOfDiscs.Models
+@model List<Feedback>
+@{
+    ViewBag.Title = "ManagingFeedback";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Function f = new Function();
+    List<ReplyFeedback> lstRep = (List<ReplyFeedback>)ViewData["lstrefeed"];
+}
+
+<div class="container">
+    <h2>Managing feedback</h2>
+    <p>view and reply to feedback</p>
+    @foreach (var feed in Model)
+    {
+        <div class="box box-success">
+            <div style="cursor: move;" class="box-header ui-sortable-handle">
+                <i class="fa fa-envelope-o"></i>
+                <h3 class="box-title">Feedback (ID User: @feed.Id_User)</h3>
+                <div class="box-tools pull-right">
+                    ID: @feed.Id
+                </div>
+            </div>
+            <div style="position: relative; width: 1000px; height: auto; margin: auto;" >
+                <div style="overflow: hidden; width: auto; height: auto;">                    
+                    <!-- chat item -->
+                    <div class="item">                        
+                        <p class="message">
+                            <a href="#" class="name">
+                                <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> @feed.Date.Value.ToString("dd/MM/yyyy hh:mm")</small>
+                                @f.GetNameUser((int)feed.Id_User) :
+                            </a>
+                            @feed.Content
+                        </p>
+                    </div><!-- /.item -->   
+                @{
+        foreach (var refeed in lstRep)
+        {
+            if (refeed.Id_Feedback == feed.Id)
+            {
+                            <!-- chat item -->
+                    <div class="item">
+                        <p class="message">
+                            <a href="#" class="name">
+                                <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> @refeed.Date.Value.ToString("dd/MM/yyyy hh:mm")</small>
+                                Admin: 
+                            </a>
+                            @refeed.Content
+                        </p>
+                    </div><!-- /.item -->
+            }
+        }
+                }                
+                </div><div style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; width: 7px; position: absolute; top: 63px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 187.126px;" class="slimScrollBar"></div><div style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51) none repeat scroll 0% 0%; opacity: 0.2; z-index: 90; right: 1px;" class="slimScrollRail"></div>
+            </div><!-- /.chat -->
+            <div class="box-footer">
+                @using (Html.BeginForm("ReplyFeedback", "ManagingFeedback", new {@Id_Feed = feed.Id }))
+                {
+                    <div class="input-group">
+                        <input class="form-control" name="txtRepFeed" placeholder="Reply to feedback...">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                }               
+            </div>
+        </div>
+    }
+</div>
+

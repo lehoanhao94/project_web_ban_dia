@@ -1,0 +1,101 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<WorldOfDiscs.Models.Disc>
+           @using WorldOfDiscs.Models
+@{
+    ViewBag.Title = "ManagingDiscDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Function f = new Function();
+}
+
+<div class="container">
+    <h2>Managing Disc Details</h2>
+    <p>Add, Delete, and Modify Disc Details in WOD</p>
+    @if (Session["ErrorDD"] != null)
+    {
+        <div class="alert alert-danger fade in" style="text-align: center;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            @Session["ErrorDD"].ToString()
+        </div>
+    }
+    @if (@Session["SuccessDD"] != null)
+    {
+        <div class="alert alert-success fade in" style="text-align: center">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            @Session["SuccessDD"].ToString()
+        </div>
+    }
+    <a href="/ManagingDiscDetails/Create" class="btn btn-success">Add Disc</a>
+    <table id="tabDisc" class="table">
+        <thead>
+            <tr class="info">
+                <th style="width: 10px!important;">ID</th>
+                <th style="width: 100px!important;">Title</th>
+                <th>Content</th>
+                <th>Actor</th>
+                <th>Country</th>
+                <th>Type</th>
+                <th>Image small</th>
+                <th>Image big</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Group Category</th>
+                <th>New/Old</th>
+                <th>Control</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var disc in Model)
+            {
+                <tr class="danger">
+                    <td>@disc.Id</td>
+                    <td>@disc.Title</td>
+                    @{
+                    if (@disc.Content.Count() > 100)
+                    {
+                        <td>@disc.Content.Substring(0, 100)...</td>
+                    }
+                    else
+                    {
+                        <td>@disc.Content</td>
+                    }
+}
+                    
+                    <td>@disc.Actor</td>
+                    <td>@disc.Country</td>
+                    <td>@disc.Type</td>
+                    <td><img src=@Url.Content("~/img/disc/" + @disc.Image_small) width="100" height="150" /></td>
+                    <td><img src=@Url.Content("~/img/disc/" + @disc.Image_big) width="150" height="100" /></td>
+                    <td>@String.Format("{0:0,0}", disc.Price)</td>
+                    <td>@f.GetNameCategory((int)@disc.Id_Category)</td>
+                    <td>@f.GetNameGroupCategory((int)@disc.Id_Group_Category)</td>
+                    @{
+                        if(disc.IsNew == 1)
+                        {
+                            <td><span class="glyphicon glyphicon-ok" style="color: #367FA9"></span></td>
+                        }
+                        else
+                        {
+                            <td><span class="glyphicon glyphicon-remove" style="color: #D73925"></span></td>
+                        }
+                    }                  
+                    <td>
+                        <div class="btn-group">
+                            @using (Html.BeginForm("Update", "ManagingDiscDetails", new { @Id_Disc = disc.Id }))
+                            {
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            }
+                            @using (Html.BeginForm("Delete", "ManagingDiscDetails", new {@Id_Disc = disc.Id}))
+                            {
+                                <button type="submit" class="btn btn-danger" style="width: 70px;">Delete</button>
+                            }
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @*Tạo link liên kết các trang*@
+    <div class="mPagination">@Html.PagedListPager(Model, page => Url.Action("ManagingDiscDetails", "Admin", new { page = page }))</div>
+
+</div>
+

@@ -1,0 +1,127 @@
+﻿@using WorldOfDiscs.Models;
+@model List<Category>
+
+<!-- FILM MENU -->
+<ul class="nav nav-pills nav-stacked">
+    <li id="diskfilm" class="active"><a>Đĩa phim</a></li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Phim lẻ <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            @{
+                foreach (var item in Model)
+                {
+                    if (item.Id_Group_Category == 1)
+                    {
+                        <li><a href="@Url.Action("ListDisc", "Category", new { @Id_Category = item.Id})">@item.Name</a></li>
+                    }
+                }
+            }
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Phim bộ <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            @{
+                foreach (var item in Model)
+                {
+                    if (item.Id_Group_Category == 2)
+                    {
+                        <li><a href="@Url.Action("ListDisc", "Category", new { @Id_Category = item.Id})">@item.Name</a></li>
+                    }
+                }
+            }
+        </ul>
+    </li>
+</ul>
+<!-- MUSIC MENU -->
+<ul class="nav nav-pills nav-stacked">
+    <li id="diskmusic" class="active"><a>Đĩa nhạc</a></li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Việt Nam <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            @{
+                foreach (var item in Model)
+                {
+                    if (item.Id_Group_Category == 3)
+                    {
+                        <li><a href="@Url.Action("ListDisc", "Category", new { @Id_Category = item.Id})">@item.Name</a></li>
+                    }
+                }
+            }
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Âu Mỹ <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            @{
+                foreach (var item in Model)
+                {
+                    if (item.Id_Group_Category == 4)
+                    {
+                        <li><a href="@Url.Action("ListDisc", "Category", new { @Id_Category = item.Id})">@item.Name</a></li>
+                    }
+                }
+            }
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Châu Á <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            @{
+                foreach (var item in Model)
+                {
+                    if (item.Id_Group_Category == 5)
+                    {
+                        <li><a href="@Url.Action("ListDisc", "Category", new { @Id_Category = item.Id})">@item.Name</a></li>
+                    }
+                }
+            }
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hòa tấu <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            @{
+                foreach (var item in Model)
+                {
+                    if (item.Id_Group_Category == 6)
+                    {
+                        <li><a href="@Url.Action("ListDisc", "Category", new { @Id_Category = item.Id})">@item.Name</a></li>
+                    }
+                }
+            }
+        </ul>
+    </li>
+</ul>
+<!-- GAME MENU -->
+<ul class="nav nav-pills nav-stacked">
+    <li id="diskDVD" class="active"><a>Đĩa DVD</a></li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Đĩa game <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            @{
+                foreach (var item in Model)
+                {
+                    if (item.Id_Group_Category == 7)
+                    {
+                        <li><a href="@Url.Action("ListDisc", "Category", new { @Id_Category = item.Id})">@item.Name</a></li>
+                    }
+                }
+            }
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Đĩa phần mềm <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            @{
+                foreach (var item in Model)
+                {
+                    if (item.Id_Group_Category == 8)
+                    {
+                        <li><a href="@Url.Action("ListDisc", "Category", new { @Id_Category = item.Id})">@item.Name</a></li>
+                    }
+                }
+            }
+        </ul>
+    </li>
+</ul>

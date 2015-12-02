@@ -1,0 +1,49 @@
+﻿@using WorldOfDiscs.Models;
+@model User
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_TopBarLayout.cshtml";
+}
+
+@section Content{
+<div class="profile_left">
+    <ul class="nav nav-pills">
+        <li class="active"><a href="#profile_update">Cập nhật thông tin cá nhân</a></li>
+        <li><a href="#pass_change">Thay đổi mật khẩu</a></li>
+        <li><a href="#buying_history">Lịch sử mua hàng</a></li>
+        <li><a href="#unpaid_bills">Hóa đơn chưa thanh toán</a></li>
+    </ul>
+    <div class="tab-content">
+        
+        @Html.Action("UpdateProfilePartial", "User")
+        @Html.Action("ChangePasswordPartial", "User")
+        @Html.Action("BuyingHistoryPartial", "User")
+        @Html.Action("UnpaidBillsPartial", "User")
+       
+    </div>
+</div>
+<!-- PROFILE RIGHT -->
+<div class="profile_right">
+    <h2 class="title_profile">@Model.FullName.ToUpper()</h2>
+    <div class="avatar_profile">
+        <img src=@Url.Content("~/img/avatar/" + @Model.Avatar) width="185" height="185">
+    </div>
+    <ul class="info_profile">
+        <li>Email: <span>@Model.Email</span></li>
+        <li>Địa chỉ: <span>@Model.Address</span></li>
+        <li>Di động: <span>@Model.Mobile</span></li>
+        @{
+            if (Model.Birthday != null)
+            {
+                <li>Ngày sinh: <span>@Model.Birthday.Value.ToString("dd/MM/yyyy")</span></li>
+            }
+            else
+            {
+                <li>Ngày sinh: <span></span></li>
+            }
+         }
+        <li>Giới tính: <span>@Model.Sex</span></li>
+    </ul>
+</div>
+}
+

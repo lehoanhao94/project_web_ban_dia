@@ -1,0 +1,29 @@
+﻿@model WorldOfDiscs.Models.Forum_Post
+
+@{
+    ViewBag.Title = "CreatePost";
+    Layout = "~/Views/Shared/_TopBarLayout.cshtml";
+}
+
+@section Content{
+    @using (Html.BeginForm())
+    {
+        <div class="container" id="CreatePostBox">
+            <h4>Đăng bài mới</h4>
+            <p>Nhập các thông tin để đăng bài.</p>
+            <div>
+                <label>Tiêu đề: </label>
+                <input type="text" required name="txtTitle" class="form-control" />
+                <br />
+                <label>Nội dung: </label>
+                <textarea class="form-control" style="min-width:1125px; max-width:1125px" required name="txtContent"></textarea>
+                <br />
+                <button type="submit" class="btn btn-success" style="float: right;">
+                    <span class="glyphicon glyphicon-ok"></span> Đăng bài
+                </button>
+            </div>
+            
+
+        </div>
+    }
+}

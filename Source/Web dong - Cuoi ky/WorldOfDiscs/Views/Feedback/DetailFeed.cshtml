@@ -1,0 +1,36 @@
+﻿@using WorldOfDiscs.Models
+@{
+    ViewBag.Title = "DetailFeed";
+    Layout = "~/Views/Shared/_TopBarLayout.cshtml";
+}
+<link href="~/Content/UserCssLayout/Feedback.css" rel="stylesheet" />
+@section Content{
+    @{
+        Feedback fb = (Feedback)ViewBag.Feedback;
+        Function f = new Function();
+    }
+    <div class="container" id="ForumBox">
+        <h4 style="height: 2px!important; font-size: 14px!important"></h4>
+        <label>Nội dung:</label>
+        <text>@fb.Content</text>
+        <br />
+        <br />
+        <label>Thời gian đăng: </label>
+        <text>@fb.Date.Value.ToString("dd/MM/yyyy lúc hh:mm")</text>
+        <br />
+        <h4 style="height: 2px!important; font-size: 14px!important"></h4>
+        @{
+           if(ViewBag.ReplyFeedback == null)
+           {
+               <label>Admin chưa trả lời.</label>
+           }
+           else
+           {
+                ReplyFeedback rfb = (ReplyFeedback)ViewBag.ReplyFeedback;
+                <label>Admin nói rằng:</label>
+                <text>@rfb.Content</text>
+           }
+}
+    </div>
+}
+

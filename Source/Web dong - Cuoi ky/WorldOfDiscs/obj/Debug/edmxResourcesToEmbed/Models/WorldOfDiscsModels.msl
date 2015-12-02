@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WorldOfDiscsModelStoreContainer" CdmEntityContainer="WorldOfDiscsEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="WorldOfDiscsModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id_Group_Category" ColumnName="Id_Group_Category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detail_Order">
+      <EntityTypeMapping TypeName="WorldOfDiscsModel.Detail_Order">
+        <MappingFragment StoreEntitySet="Detail_Order">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_Order" ColumnName="Id_Order" />
+          <ScalarProperty Name="Id_Disc" ColumnName="Id_Disc" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Direct_Payment_Method">
+      <EntityTypeMapping TypeName="WorldOfDiscsModel.Direct_Payment_Method">
+        <MappingFragment StoreEntitySet="Direct_Payment_Method">
+          <ScalarProperty Name="Id_Order" ColumnName="Id_Order" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Shipping_Address" ColumnName="Shipping_Address" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Discs">
+      <EntityTypeMapping TypeName="WorldOfDiscsModel.Disc">
+        <MappingFragment StoreEntitySet="Discs">
+          <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Actor" ColumnName="Actor" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Image_small" ColumnName="Image_small" />
+          <ScalarProperty Name="Image_big" ColumnName="Image_big" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Id_Category" ColumnName="Id_Category" />
+          <ScalarProperty Name="Id_Group_Category" ColumnName="Id_Group_Category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Forum_Comment">
+      <EntityTypeMapping TypeName="WorldOfDiscsModel.Forum_Comment">
+        <MappingFragment StoreEntitySet="Forum_Comment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_Forum_Post" ColumnName="Id_Forum_Post" />
+          <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Forum_Post">
+      <EntityTypeMapping TypeName="WorldOfDiscsModel.Forum_Post">
+        <MappingFragment StoreEntitySet="Forum_Post">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Group_Category">
+      <EntityTypeMapping TypeName="WorldOfDiscsModel.Group_Category">
+        <MappingFragment StoreEntitySet="Group_Category">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="WorldOfDiscsModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Id_Payment_Method" ColumnName="Id_Payment_Method" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payment_Method">
+      <EntityTypeMapping TypeName="WorldOfDiscsModel.Payment_Method">
+        <MappingFragment StoreEntitySet="Payment_Method">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="WorldOfDiscsModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="WorldOfDiscsModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedbacks">
+      <EntityTypeMapping TypeName="WorldOfDiscsModel.Feedback">
+        <MappingFragment StoreEntitySet="Feedback">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReplyFeedbacks">
+      <EntityTypeMapping TypeName="WorldOfDiscsModel.ReplyFeedback">
+        <MappingFragment StoreEntitySet="ReplyFeedback">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Id_Feedback" ColumnName="Id_Feedback" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
