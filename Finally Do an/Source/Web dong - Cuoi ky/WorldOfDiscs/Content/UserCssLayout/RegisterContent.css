@@ -1,0 +1,41 @@
+﻿body {
+}
+
+#Register_content h4{
+    height: 40px;
+    font-size: 20px;
+    padding-top: 7px;
+    margin-top: 0px;
+}
+
+#lblErrorRegister{
+    text-align: center;
+    color: red;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+#Register_content .form-control{
+    width: 400px;
+}
+
+#Register_content .navbar-form{
+    width: 400px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#Register_content{
+    border: 3px solid #286090;
+    margin-top: 10px;
+}
+
+#Register_content a{
+    text-align: center;
+    font-size: 16px;
+}
+
+#Register_content #sizing-addon3{
+    background-color: #286090;
+    color: white;
+}

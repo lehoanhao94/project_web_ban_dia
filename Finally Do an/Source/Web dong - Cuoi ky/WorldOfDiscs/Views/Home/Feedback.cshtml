@@ -1,0 +1,58 @@
+﻿@using WorldOfDiscs.Models
+@model List<Feedback>
+@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/Shared/_TopBarLayout.cshtml";
+}
+
+@section Content{
+    @using (Html.BeginForm("SendFeedback", "Feedback"))
+    {
+        <div class="container" id="CreatePostBox">
+            <h4>Thắc mắc</h4>
+            <p>Gửi thắc mắc của bạn tới trực tiếp admin.</p>
+            <div>
+                <br />
+                <label>Nội dung: </label>
+                <textarea class="form-control" style="min-width:1125px; max-width:1125px" required name="txtContent"></textarea>
+                <br />
+                <button type="submit" class="btn btn-success" style="float: right;">
+                    <span class="glyphicon glyphicon-ok"></span> Gửi
+                </button>
+            </div>
+        </div>
+    }
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Số thứ tự</th>
+            <th>Nội dung</th>
+            <th>Ngày đăng</th>
+            <th>Trả lời</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{Function f = new Function();}
+        @foreach (var feed in Model)
+        {
+            <tr>
+                <td>@feed.Id</td>
+                @{
+                    if (feed.Content.Count() > 60)
+                    {
+                    <td><a href="@Url.Action("DetailFeed", "Feedback", new { @Id_Feed = feed.Id })">@feed.Content.Substring(0,60)...</a></td>
+                    }
+                    else
+                    {
+                        <td><a href="@Url.Action("DetailFeed", "Feedback", new { @Id_Feed = feed.Id })">@feed.Content.ToString()</a></td>
+                    }
+                 }
+                <td>@feed.Date.Value.ToString("dd/MM/yyyy lúc hh:mm")</td>
+                <td>@f.IsReplyFeedback(@feed.Id)</td>
+            </tr>
+        }      
+    </tbody>
+</table>
+
+}
+

@@ -1,0 +1,111 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<WorldOfDiscs.Models.User>
+
+@{
+    ViewBag.Title = "ManagingUserAccounts";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <h2>Managing User Accounts</h2>
+    <p>Add, Delete, and Modify User Accounts in WOD</p>
+    @if (Session["Error"] != null)
+    {
+        <div class="alert alert-danger fade in" style="text-align: center;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            @Session["Error"].ToString()
+        </div>
+    }
+    @if (@Session["Success"] != null)
+    {
+        <div class="alert alert-success fade in" style="text-align: center">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            @Session["Success"].ToString()
+        </div>
+    }
+    <a href="/ManagingUserAccounts/Create" class="btn btn-success">Create new account</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>FullName</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Mobile</th>
+                <th>Birthday</th>
+                <th>Sex</th>
+                <th>Avatar</th>
+                <th>Password</th>
+                <th>Access</th>
+                <th>Control</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                if (user.isAdmin == 1)
+                {                  
+                    <tr class="danger">
+                        <td>@user.Id</td>
+                        <td>@user.FullName</td>
+                        <td>@user.Email</td>
+                        <td>@user.Address</td>
+                        <td>@user.Mobile</td>
+                        @if (user.Birthday != null)
+                        {
+                        <td>@user.Birthday.Value.ToString("dd/MM/yyyy")</td>
+                        }
+                        else
+                        {
+                        <td>@user.Birthday</td>
+                        }                         
+                        <td>@user.Sex</td>
+                        <td>@user.Avatar</td>
+                        <td>@user.Password</td>
+                        <td><span class="glyphicon glyphicon-star" style="color: #D73925;"></span></td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="/ManagingUserAccounts/Update?Id_User=@user.Id" class="btn btn-primary">Update</a>
+                                <a href="/ManagingUserAccounts/Delete?Id_User=@user.Id"  class="btn btn-danger">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr class="success">
+                        <td>@user.Id</td>
+                        <td>@user.FullName</td>
+                        <td>@user.Email</td>
+                        <td>@user.Address</td>
+                        <td>@user.Mobile</td>
+                        @if (user.Birthday != null)
+                        {
+                            <td>@user.Birthday.Value.ToString("dd/MM/yyyy")</td>
+                        }
+                        else
+                        {
+                            <td>@user.Birthday</td>
+                        }
+                        <td>@user.Sex</td>
+                        <td>@user.Avatar</td>
+                        <td>@user.Password</td>
+                        <td><span class="glyphicon glyphicon-user" style="color:#367FA9;"></span></td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="/ManagingUserAccounts/Update?Id_User=@user.Id" class="btn btn-primary">Update</a>
+                                <a href="/ManagingUserAccounts/Delete?Id_User=@user.Id" class="btn btn-danger">Delete</a>
+                                
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }           
+        </tbody>
+    </table>
+    @*Tạo link liên kết các trang*@
+    <div class="mPagination">@Html.PagedListPager(Model, page => Url.Action("ManagingUserAccounts", "Admin", new {page = page }))</div>
+
+</div>
+
+    

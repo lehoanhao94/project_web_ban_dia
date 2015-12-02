@@ -1,0 +1,108 @@
+﻿@using WorldOfDiscs.Models
+@model User
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <h2>Managing User Accounts - Modify</h2>
+    <p>Modify User Accounts</p>
+    @if (Session["Error"] != null)
+    {
+        <div class="alert alert-danger fade in" style="text-align: center;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            @Session["Error"].ToString()
+        </div>
+    }
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>FullName</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Mobile</th>
+                <th>Birthday</th>
+                <th>Sex</th>
+                <th>Avatar</th>
+                <th>Password</th>
+                <th>Admin</th>
+                <th>Control</th>
+            </tr>
+        </thead>
+        <tbody>
+                @if (Model.isAdmin == 1)
+                {
+                    using (Html.BeginForm("Update", "ManagingUserAccounts", FormMethod.Post))
+                    {
+                    <tr class="danger">
+                        <td>@Model.Id</td>
+                        <td><input name="FullName" class="form-control" type="text" required value="@Model.FullName"></td>
+                        <td><input type="email" name="Email" required class="form-control" value=@Model.Email></td>
+                        <td><input type="text" name="Address" class="form-control" value=@Model.Address></td>
+                        <td><input type="text" name="Mobile" class="form-control" value=@Model.Mobile></td>
+                        @{if (@Model.Birthday != null)
+                        {
+                            <td><input type="date" name="Birthday" class="form-control" value=@Model.Birthday.Value.ToString("dd/MM/yyyy")></td>
+                        }
+                        else
+                        {
+                            <td>
+                                <input type="date" name="Birthday" class="form-control" value=@Model.Birthday>
+                            </td>
+                        }}
+                        <td><input type="text" name="Sex" class="form-control" value=@Model.Sex></td>
+                        <td><input type="text" name="Avatar" class="form-control" value=@Model.Avatar></td>
+                        <td><input type="text" name="Password" required class="form-control" value=@Model.Password></td>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="isAdmin" checked="" class="flat-red">
+                            </label>
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-primary">Done</button>
+                        </td>
+                    </tr>
+                }
+                }
+                else
+                {
+                    using (Html.BeginForm("Update", "ManagingUserAccounts", FormMethod.Post))
+                    {
+                        <tr class="success">
+                            <td>@Model.Id</td>
+                            <td><input name="FullName" class="form-control" type="text" required value="@Model.FullName"></td>
+                            <td><input type="email" name="Email"required class="form-control" value=@Model.Email ></td>
+                            <td><input type="text" name="Address" class="form-control" value=@Model.Address ></td>
+                            <td><input type="text" name="Mobile" class="form-control" value=@Model.Mobile ></td>
+                            @{if (@Model.Birthday != null)
+                              {
+                                <td><input type="date" name="Birthday" class="form-control" value=@Model.Birthday.Value.ToString("dd/MM/yyyy") ></td>
+                              }
+                              else
+                              {
+                                <td>
+                                    <input type="date" name="Birthday" class="form-control" value=@Model.Birthday >
+                                </td>
+                              }}
+                                <td><input type="text" name="Sex" class="form-control" value=@Model.Sex ></td>
+                                <td><input type="text" name="Avatar" class="form-control" value=@Model.Avatar ></td>
+                                <td><input type="text" name="Password"required class="form-control" value=@Model.Password ></td>
+                                <td>
+                                    <label>
+                                        <input type="checkbox" name="isAdmin" class="flat-red">
+                                    </label>
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn btn-primary">Done</button>
+                                </td>
+                            </tr>                          
+                    }
+                }
+            }
+        </tbody>
+    </table>
+
+</div>
+

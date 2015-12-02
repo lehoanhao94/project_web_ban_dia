@@ -1,0 +1,63 @@
+﻿@using WorldOfDiscs.Models
+@model Disc
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container" style="width: 800px;">
+    <h2>Managing Disc Details</h2>
+    <p>Modify Disc Details in WOD</p>
+
+    @using (Html.BeginForm("UpdateDone", "ManagingDiscDetails", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label>Title</label>
+            <input class="form-control" required name="Title" type="text" value="@Model.Title">
+        </div>
+        <div class="form-group">
+            <label>Content</label>
+            <textarea class="form-control" rows="3" required name="Content">@Model.Content</textarea>
+        </div>
+        <div class="form-group">
+            <label>Actor</label>
+            <input class="form-control" required name="Actor" type="text" value="@Model.Actor">
+        </div>
+        <div class="form-group">
+            <label>Country</label>
+            <input class="form-control" required name="Country" type="text" value="@Model.Country">
+        </div>
+        <div class="form-group">
+            <label>Type</label>
+            <input class="form-control" required name="Type" type="text" value="@Model.Type">
+        </div>
+        <div class="form-group">
+            <label for="Image_small">Image small</label>
+            <input id="Image_small" name="Image_small" type="file">
+        </div>
+        <div class="form-group">
+            <label for="Image_big">Image big</label>
+            <input id="Image_big" name="Image_big" type="file">
+        </div>
+        <div class="form-group">
+            <label>Price</label>
+            <input class="form-control" required name="Price" type="number" value="@Model.Price">
+        </div>
+        <div class="form-group">
+            <label>Group category</label>
+            @Html.DropDownList("GroupCategory", (IEnumerable<SelectListItem>)ViewBag.GroupCategory, new { @class = "Group_category form-control" })
+        </div>
+        <div class="form-group">
+            <label>Category</label>
+            @Html.DropDownList("Category", (IEnumerable<SelectListItem>)ViewBag.Category, new { @class = "Group_category form-control" })
+        </div>
+        <div class="form-group">
+            <label>Disc new</label>
+            <input type="checkbox" name="IsNew" class="form-control" checked="checked" />
+        </div>
+        <button type="submit" class="form-control btn-primary">Update</button>
+
+    }
+
+</div>
+

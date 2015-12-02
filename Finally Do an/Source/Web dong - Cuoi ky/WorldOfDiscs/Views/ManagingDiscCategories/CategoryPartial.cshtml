@@ -1,0 +1,60 @@
+﻿@using WorldOfDiscs.Models
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Category>
+@{Function f = new Function();}
+
+    <h2>Managing Disc Category</h2>
+    <p>Add, Delete, and Modify Disc Category in WOD</p>
+    @if (Session["ErrorC"] != null)
+    {
+        <div class="alert alert-danger fade in" style="text-align: center;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            @Session["ErrorC"].ToString()
+        </div>
+    }
+    @if (@Session["SuccessC"] != null)
+    {
+        <div class="alert alert-success fade in" style="text-align: center">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            @Session["SuccessC"].ToString()
+        </div>
+    }
+    
+    @using (Html.BeginForm("CreateC", "ManagingDiscCategories"))
+    {
+        <button type="submit" class="btnCreate btn btn-success">Create</button>
+        <input type="text" name="txtName" required class="txtCreate form-control" />
+        @Html.DropDownList("GroupCategory", (IEnumerable<SelectListItem>)ViewBag.GroupCategory, new { @class = "Group_category form-control", @style = "width: 150px;float: left; margin-left: 10px;" })
+    }
+    <div class="clearfix"></div>
+    <br />
+    <table class="table">
+        <thead>
+            <tr class="info">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Group Category</th>
+                <th>Control</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var gc in Model)
+            {
+                <tr class="danger">
+                    <td>@gc.Id</td>
+                    <td>@gc.Name</td>
+                    <td>@f.GetNameGroupCategory((int)gc.Id_Group_Category)</td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="/ManagingDiscCategories/UpdateC?Id_Category=@gc.Id" class="btn btn-primary">Update</a>
+                            <a href="/ManagingDiscCategories/DeleteC?Id_Category=@gc.Id" class="btn btn-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }             
+        </tbody>
+    </table>
+@*Tạo link liên kết các trang*@
+<div class="mPagination">@Html.PagedListPager(Model, page => Url.Action("ManagingDiscCategories", "Admin", new { page = page }))</div>
+
+

@@ -1,0 +1,46 @@
+﻿@using WorldOfDiscs.Models
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Forum_Comment>
+
+@{
+    ViewBag.Title = "DetailPost";
+    Layout = "~/Views/Shared/_TopBarLayout.cshtml";
+}
+
+@section Content{
+    @{
+        Forum_Post fp = (Forum_Post)ViewBag.Post;
+        Function f = new Function();
+    }
+    <div class="container" id="ForumBox">
+        <h4>Tiêu đề: @fp.Title</h4>
+        <label>Nội dung:</label>
+        <text>@fp.Content</text>
+        <br />
+        <label>Người đăng: </label>
+        <text>@f.GetNameUser((int)@fp.Id_User)</text>
+        <br />
+        <label>Thời gian đăng: </label>
+        <text>@fp.Date.Value.ToString("dd/MM/yyyy lúc hh:mm")</text>
+        <br />
+        @foreach(var cmt in Model)
+        {
+            <h4 style="height: 2px!important; font-size: 14px!important"></h4>
+            <label>@f.GetNameUser((int)cmt.Id_User) (ID: @cmt.Id_User) nói rằng: </label>
+            <text>@cmt.Content</text>        
+        }
+        @using (Html.BeginForm("AddComment", "Forum", new { @Id_Post = fp.Id }))
+        {
+            <h4 style="background-color: #47A447;height: 10px!important; font-size: 14px!important"></h4>
+            <label>Bạn cũng có thể bình luận tại đây: </label>
+            <textarea name="txtContent" class="form-control" required placeholder="Nhập thảo luận của bạn vào đây..."></textarea>
+            <br />
+            <button class="btn btn-success" type="submit">Đăng thảo luận</button>
+        }            
+        <div class="mPagination">@Html.PagedListPager(Model, page => Url.Action("DetailPost", "Forum", new {@Id_Post = fp.Id, page = page }))</div>
+    </div>
+}
+
+
+
+

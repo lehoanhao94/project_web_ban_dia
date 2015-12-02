@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container" style="width: 800px;">
+    <h2>Managing Disc Details</h2>
+    <p>Add Disc in WOD</p>
+    @if (@ViewBag.Success != null)
+    {
+        <div class="alert alert-success fade in" style="text-align: center">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            @ViewBag.Success.ToString()
+        </div>
+    }
+    @using (Html.BeginForm("Create", "ManagingDiscDetails", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label>Title</label>
+            <input class="form-control" required name="Title" type="text">
+        </div>
+        <div class="form-group">
+            <label>Content</label>
+            <textarea class="form-control" rows="3" required name="Content"></textarea>
+        </div>
+    <div class="form-group">
+        <label>Actor</label>
+        <input class="form-control" required name="Actor" type="text">
+    </div>
+    <div class="form-group">
+        <label>Country</label>
+        <input class="form-control" required name="Country" type="text">
+    </div>
+    <div class="form-group">
+        <label>Type</label>
+        <input class="form-control" required name="Type" type="text">
+    </div>
+    <div class="form-group">
+        <label for="Image_small">Image small</label>
+        <input id="Image_small" name="Image_small" type="file">
+    </div>
+    <div class="form-group">
+        <label for="Image_big">Image big</label>
+        <input id="Image_big" name="Image_big" type="file">
+    </div>
+    <div class="form-group">
+        <label>Price</label>
+        <input class="form-control" required name="Price" type="number">
+    </div>
+    <div class="form-group">
+        <label>Group category</label>
+        @Html.DropDownList("GroupCategory", (IEnumerable<SelectListItem>)ViewBag.GroupCategory, new { @class = "Group_category form-control" })
+    </div>
+    <div class="form-group">
+        <label>Category</label>
+        @Html.DropDownList("Category", (IEnumerable<SelectListItem>)ViewBag.Category, new { @class = "Group_category form-control" })
+    </div>
+    <div class="form-group">
+        <label>Disc new</label>  
+        <input type="checkbox" name="IsNew" class="form-control" checked="checked"/>
+    </div>
+    <button type="submit" class="form-control btn-primary">Add</button>
+
+    }
+    
+</div>
+

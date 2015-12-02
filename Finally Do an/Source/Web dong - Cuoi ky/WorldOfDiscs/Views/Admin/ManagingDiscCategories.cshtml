@@ -1,0 +1,19 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<WorldOfDiscs.Models.Category>
+ @using WorldOfDiscs.Models
+
+@{
+    ViewBag.Title = "ManagingDiscCategories";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="Left">
+        @Html.Action("GroupCategoryPartial", "ManagingDiscCategories")
+    </div>
+    <div class="Right">
+        @Html.Action("CategoryPartial", "ManagingDiscCategories")
+    </div>
+</div>
+      
+

@@ -1,0 +1,36 @@
+.modal-header, h4, .close {
+      background-color: #286090;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+	  }
+	  
+.modal-footer {
+      background-color: #f9f9f9;
+	  }
+	  
+.btn-success {
+      padding: 10px;
+	  }
+	  
+#btnBuy{
+	width: 90px;
+	height: 35px;
+	text-align: center;
+	padding: 0;
+}
+
+#Register_box .modal-dialog{
+	width: 450px;
+}
+
+
+.form-search{
+	width: 399px;
+	float: left;
+}
+
+.label_search{
+	width: 180px;
+	float: left;
+}

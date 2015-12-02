@@ -1,0 +1,51 @@
+﻿@using WorldOfDiscs.Models
+@model List<DiscInShoppingCart>
+
+@{int i = 1;}
+@{
+    ViewBag.Title = "ShoppingCart";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+@section Right_content
+{
+    <h4 style="height: 40px;font-size: 20px;padding-top: 7px;">Giỏ hàng</h4>
+    <table id="tblShopping_Cart" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Bìa đĩa</th>
+                <th>Tiêu đề</th>
+                <th>Giá</th>
+                <th style="width: 100px;">Số lượng</th>
+                <th>Thành tiền</th>
+                <th>Chấp nhận</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                 
+                <tr>
+                    <td>@i</td>
+                    <td class="img_history"><img src=@Url.Content("~/img/disc/" + item.Image_small) width="96" height="130"></td>
+                    <td>@item.Title</td>
+                    <td>@String.Format("{0:0,0}", item.Price) VNĐ</td>
+                    @using (Html.BeginForm("UpdateDiscInShoppingCart", "ShoppingCart", new { @Id_Disc = item.Id_Disc, }))
+                    {
+                    <td style="padding-top: 40px;">@Html.TextBox("txtNumber", @item.Number, new { @class = "form-control"}) </td>
+                    <td>@String.Format("{0:0,0}", item.TotalMoney) VNĐ</td>
+                    <td style="padding-top: 40px;"><button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span></button></td>
+                    }
+                </tr>
+               
+                i++;
+            }
+        </tbody>
+    </table>
+}
+
+
+
+

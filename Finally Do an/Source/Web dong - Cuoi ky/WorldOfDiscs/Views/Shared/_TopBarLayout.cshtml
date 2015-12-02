@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- INCLUDE -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/UserCssLayout/mHeader.css" rel="stylesheet" />
+    <link href="~/Content/UserCssLayout/Customer.css" rel="stylesheet" />
+    <link href="~/Content/UserCssLayout/Detail-product.css" rel="stylesheet" />
+    <link href="~/Content/UserCssLayout/Feedback.css" rel="stylesheet" />
+    <link href="~/Content/UserCssLayout/Forum.css" rel="stylesheet" />
+    <link href="~/Content/UserCssLayout/mContent.css" rel="stylesheet" />
+    <link href="~/Content/UserCssLayout/List-product.css" rel="stylesheet" />
+    <link href="~/Content/UserCssLayout/mFooter.css" rel="stylesheet" />
+    <link href="~/Content/UserCssLayout/Online-help.css" rel="stylesheet" />
+    <link href="~/Content/UserCssLayout/Profile.css" rel="stylesheet" />
+    <link href="~/Content/UserCssLayout/Search.css" rel="stylesheet" />
+    <link href="~/Content/UserCssLayout/Shopping_cart.css" rel="stylesheet" />
+    <link href="~/Content/UserCssLayout/SupportContent.css" rel="stylesheet" />
+
+    <title>World of discs</title>
+
+</head>
+
+<body>
+    @RenderBody()
+    <!-- MAIN -->
+    <div id="mMain">
+        <!-- HEADER -->
+        <div id="mHeader">
+            <!-- MENU -->
+            <div id="mMenu">
+                <ul class="nav navbar-nav">
+                    <li><a href="/Home/Index"><span class="glyphicon glyphicon-home"></span> Trang chủ</a></li>
+                    <li><a href="/Search/AdvancedSearch"><span class="glyphicon glyphicon-search"></span> Tìm kiếm</a></li>
+                    <li><a href="/Home/SupportOnline"><span class="glyphicon glyphicon-headphones"></span> Hỗ trợ trực tuyến</a></li>
+                    <li><a href="/Home/Forum"><span class="glyphicon glyphicon-globe"></span> Diễn đàn</a></li>
+                    <li><a href="/Home/Feedback" id="btnFeedback_nav"><span class="glyphicon glyphicon-envelope"></span> Góp ý</a></li>
+                    <li><a href="/User/Register" id="btnRegister_nav"><span class="glyphicon glyphicon-user"></span> Đăng ký</a></li>
+                </ul>
+                @Html.Action("ShoppingCartPartial", "ShoppingCart")
+            </div>
+
+            <!-- MENU | END -->
+            <!-- LOGO & LOGIN -->
+            <div id="mLogo_login">
+                <!-- LOGO -->
+                <div id="mLogo">
+                    <img src="~/img/logo.gif" />
+                </div>
+                <!-- LOGIN -->
+                <div id="mLogin">
+                    @{
+                        if (Session["LogedUserID"] == null)
+                        {
+                            <form class="navbar-form navbar-right" action="/User/Login" method="post">
+                                <div class="form-group">
+                                    <input name="Email" type="email" placeholder="Email" required class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <input name="Password" type="password" placeholder="Mật khẩu" required class="form-control" />
+                                </div>
+                                <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                                <a href="/User/ForgotPassword" class="btn btn-warning">?</a>
+                            </form>
+                        }
+                        else
+                        {
+                            <form id="mAcc_box" class="navbar-form navbar-right">
+                                <span>Xin chào: </span> <a class="login_txt" href="/User/Profile"> @Session["LogedUserName"] </a>
+                                <a href="/User/Logout"><span>| Đăng xuất</span></a>
+                            </form>
+                        }
+                    }
+                </div>
+
+            </div>
+            <!-- LOGO & LOGIN | END -->
+            <!-- NAVIGATION & SEARCH -->
+            <div id="mNav_Search">
+                
+            </div>
+            <!-- NAVIGATION & SEARCH | END -->
+        </div>
+        <!-- HEADER | END-->
+        <div class="clearfix"></div>
+        <!-- CONTENT -->
+        <div id="mContent">
+            @RenderSection("Content", false)
+        </div>
+    </div>
+    <!-- CONTENT | END-->
+    <div class="clearfix"></div>
+
+    <!-- FOOTER -->
+    <div id="mFooter">
+        <!-- SHARE ON -->
+        <div id="mShare_on">
+            <ui>
+                <li><strong>Share on </strong></li>
+                <li>
+                    <a href="https://www.facebook.com/">
+                        <img src="~/img/fb.png" alt="facebook" width="58" height="58">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="~/img/twitter.png" alt="twitter" width="58" height="58">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="~/img/gmail.png" alt="gmail" width="58" height="58">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="~/img/linkdin.png" alt="linkedin" width="58" height="58">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="~/img/p.png" alt="pinterest" width="58" height="58">
+                    </a>
+                </li>
+            </ui>
+        </div>
+        <!-- SHARE | END -->
+        <!-- CONTACT -->
+        <div id="mContact_us" class="container">
+            <div id="mContact1">
+                <span class="img_footer"><img src="~/img/envelop-icon.png"></span>
+                <p class="title_footer">
+                    <img src="~/img/email-hd.png">
+                    <br><br>
+                    <a href="mailto:lehoanhao.94@gmail.com">
+                        <span id="mail_name">
+                            lehoanhao.94@gmail.com
+                            <br>
+                            mr.cnguyen94@gmail.com
+                        </span>
+                    </a>
+                </p>
+            </div>
+            <div id="mContact2">
+                <span class="img_footer"><img src="~/img/mobile-icon.png"></span>
+                <p class="title_footer">
+                    <img src="~/img/callus-hd.png">
+                    <br><br>
+                    <span id="mail_name">
+                        +84962096905
+                        <br>
+                        +841657674849
+                    </span>
+                </p>
+            </div>
+            <div id="mContact3">
+                <span class="img_footer"><img src="~/img/location-icon.png"></span>
+                <p class="title_footer">
+                    <img src="~/img/visitus-hd.png">
+                    <br><br>
+                    <span id="mail_name">220/125P Lê Văn Sỹ, P14, Q3 <br> TP Hồ Chí Minh, Việt Nam</span>
+                </p>
+            </div>
+        </div>
+        <!-- CONTACT | END -->
+        <!-- MENU FOOTER -->
+        <div id="mMenu_footer" class="container">
+            <ui>
+                <li>
+                    <h3>TRANG CHỦ</h3>
+                    <ui>
+                <li><a href="#">Phim đang hot</a></li>
+                <li><a href="#">Nhạc đang hot</a></li>
+                <li><a href="#">Đĩa mới ra</a></li>
+            </ui>
+            </li>
+            </ui>
+
+            <ui>
+                <li>
+                    <h3>ĐĨA PHIM</h3>
+                    <ui>
+                <li><a href="#">Phim lẻ</a></li>
+                <li><a href="#">Phim bộ</a></li>
+            </ui>
+            </li>
+            </ui>
+            <ui>
+                <li>
+                    <h3>ĐĨA NHẠC</h3>
+                    <ui>
+                <li><a href="#">Việt Nam</a></li>
+                <li><a href="#">Châu Á</a></li>
+                <li><a href="#">Âu Mỹ</a></li>
+                <li><a href="#">Hòa tấu</a></li>
+            </ui>
+            </li>
+            </ui>
+            <ui>
+                <li>
+                    <h3>WHO WE ARE</h3>
+                    <ui>
+                <li><a href="#">Lê Hoàn Hảo</a></li>
+                <li><a href="#">Nguyễn Thanh Cường</a></li>
+                <li><a href="https://www.facebook.com/bungmoxucxichpepsicoca">Facebook của Hảo</a></li>
+                <li><a href="https://www.facebook.com/bungmoxucxichpepsicoca">Facebook của Cường</a></li>
+            </ui>
+            </li>
+            </ui>
+        </div>
+        <!-- MENU FOOTER | END -->
+        <!-- COPYRIGHT -->
+        <div id="mCopyright" class="container">
+            <img id="logo_footer" src="~/img/logo_footer.gif">
+            <span id="copyright">
+                Copyrights © 2015 World of discs
+                <br>
+                Thế giới băng đĩa
+                <br>
+                Liên hệ quảng cáo: 0962096905
+            </span>
+        </div>
+        <!-- COPYRIGHT | END -->
+    </div>
+    <!-- FOOTER | END-->
+    </div>
+    <!-- MAIN | END-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="~/Scripts/jquery-1.11.3.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/my-js.js"></script>
+    <script lang="javascript">
+    (function () {
+        var _h1 = document.getElementsByTagName('title')[0] || false;
+        var product_name = ''; if (_h1) { product_name = _h1.textContent || _h1.innerText; } var ga = document.createElement('script'); ga.type = 'text/javascript';
+        ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash=87fef5539b87be157f42e033200d4b8a&data=eyJzc29faWQiOjE0ODQyMTYsImhhc2giOiI3ZGRjZDk4Yzg5MDRhZDRiZTM4MWFhMjUwNTg5ZWFlYyJ9&pname=' + product_name;
+        var s = document.getElementsByTagName('script'); s[0].parentNode.insertBefore(ga, s[0]);
+    })();
+    </script>
+</body>
+</html>

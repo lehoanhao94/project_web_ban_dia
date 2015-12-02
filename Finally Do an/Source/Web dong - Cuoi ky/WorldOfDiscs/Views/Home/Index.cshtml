@@ -1,0 +1,93 @@
+﻿@using WorldOfDiscs.Models;
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    ViewBag.Title = "Index";
+    int i = 0;
+}
+
+@section Right_content{
+    <!-- SECTION PHIM DANG HOT-->
+<div class="section">
+    <h2 class="title_section"> <a >ĐĨA MỚI <span class="glyphicon glyphicon-chevron-right"></span></a> </h2>
+    <!-- ROW -->
+    <div class="row">
+        
+        @{
+            for (int j = 0; j < 4; j++)
+            {
+                <!-- ITEM DISC -->
+                <div class="item_disc">
+                    <div class="item_title">@Model[i].Title</div>
+                    <div class="item_image"> <a href="@Url.Action("DetailDisc","Disc", new { @Id_Disc=@Model[i].Id})"> <img src=@Url.Content("~/img/disc/" + @Model[i].Image_small) width="144" height="195" alt="Image" /> </a> </div>
+                    <div class="item_price">Giá: @String.Format("{0:0,0}", Model[i].Price) VNĐ</div>
+                    <div class="item_bottom" id="item_bot">
+                        <div class="frmBtnBot" style="width: 55px;float: left; margin-left: 17px;">
+                            @using (Html.BeginForm("AddDiscToShoppingCart", "ShoppingCart", new { @Id_Disc = Model[i].Id, @strURL = Request.Url.ToString() }))
+                            {
+                                <button id="btnAdd" type="submit" style="cursor:pointer" class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào giở hàng"> <span class="glyphicon glyphicon-shopping-cart"></span></button>
+                            }
+                        </div>
+                        <div class="frmBtnBot" style="width: 55px;float: left;">
+                            @using (Html.BeginForm("", "", new { @Id_Disc = Model[i].Id, @strURL = Request.Url.ToString() }))
+                            {
+                                <button id="btnLike" class="btn btn-danger btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào danh sách yêu thích"> <span class="glyphicon glyphicon-heart"></span> </button>
+                            }
+                        </div>
+                        <div class="frmBtnBot" style="width: 55px;float: left;">
+                            @using (Html.BeginForm("DetailDisc", "Disc", new { @Id_Disc = @Model[i].Id }))
+                            {
+                                <button class="btnDetail btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Xem chi tiết"> <span class="glyphicon glyphicon-play"></span> </button>
+                            }
+                        </div>
+                    </div>
+                </div>
+                i++;
+            }
+        }   
+    </div>   
+    <!-- ROW -->
+    <div class="row">
+        @{
+            try
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    <div class="item_disc">
+                        <div class="item_title">@Model[i].Title</div>
+                        <div class="item_image"> <a href="@Url.Action("DetailDisc","Disc", new { @Id_Disc=@Model[i].Id})"> <img src=@Url.Content("~/img/disc/" + @Model[i].Image_small) width="144" height="195" alt="Image" /> </a> </div>
+                        <div class="item_price">Giá: @Model[i].Price đ</div>
+                        <div class="item_bottom" id="item_bot">
+                            <div class="frmBtnBot" style="width: 55px;float: left; margin-left: 17px;">
+                                @using (Html.BeginForm("AddDiscToShoppingCart", "ShoppingCart", new { @Id_Disc = Model[i].Id, @strURL = Request.Url.ToString() }))
+                                {
+                                    <button id="btnAdd" type="submit" style="cursor:pointer" class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào giở hàng"> <span class="glyphicon glyphicon-shopping-cart"></span></button>
+                                }
+                            </div>
+                            <div class="frmBtnBot" style="width: 55px;float: left;">
+                                @using (Html.BeginForm("AddDiscToShoppingCart", "ShoppingCart", new { @Id_Disc = Model[i].Id, @strURL = Request.Url.ToString() }))
+                                {
+                                    <button id="btnLike" class="btn btn-danger btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào danh sách yêu thích"> <span class="glyphicon glyphicon-heart"></span> </button>
+                                }
+                            </div>
+                            <div class="frmBtnBot" style="width: 55px;float: left;">
+                                @using (Html.BeginForm("DetailDisc", "Disc", new { @Id_Disc = @Model[i].Id }))
+                                {
+                                    <button class="btnDetail btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Xem chi tiết"> <span class="glyphicon glyphicon-play"></span> </button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                                i++;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+    </div>
+</div>
+}
+
+
+

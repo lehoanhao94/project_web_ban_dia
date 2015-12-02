@@ -1,0 +1,31 @@
+.detail_product_right{
+	float: right;
+	width: 310px;
+	padding-left: 10px;
+}
+.detail_product_right h3{
+	margin: 0;
+}
+.detail_product_right .item_price{
+	text-align: left;
+}
+
+.detail_product_img{
+	border-top: 1px solid #CBCBCB;
+	border-left: 1px solid #CBCBCB;
+	padding: 10px 0px 30px 10px;
+	border-bottom: 1px solid #CBCBCB;
+}
+
+.detail_product_right_bottom{
+	text-align: center;
+	width: 310px;
+}
+
+.detail_product_right_bottom #btnAdd{
+	width: 150px;	
+}
+
+.detail_product_right_bottom #btnLike{
+	width: 150px;	
+}

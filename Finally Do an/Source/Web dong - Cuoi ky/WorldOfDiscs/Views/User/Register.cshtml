@@ -1,0 +1,82 @@
+﻿@model WorldOfDiscs.Models.User
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_TopBarLayout.cshtml";
+}
+<link href="~/Content/UserCssLayout/RegisterContent.css" rel="stylesheet" />
+@section Content
+{
+<div id="Register_content">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div id="Registerbox">
+            <h4>Đăng ký tài khoản</h4>
+            @if (ViewBag.Success != null)
+            {
+                <div id="txtSuccessRegis" style="text-align: center;color: green;font-size: 18px;">@ViewBag.Success <br /><a href="/User/Login">Bấm vào đây để đăng nhập.</a> </div>
+            }
+            <br />
+            <form>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon" id="sizing-addon3">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    </span>
+                    <input type="text" id="txtFullNameRegis" name="FullName" class="form-control" placeholder="Họ tên" required aria-describedby="sizing-addon3">
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon" id="sizing-addon3">
+                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                    </span>
+                    <input type="email" id="txtEmailRegis" name="Email" class="form-control" placeholder="Email" required aria-describedby="sizing-addon3">
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon" id="sizing-addon3">
+                        <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                    </span>
+                    <input type="password" name="Password" id="txtPassRegis" class="form-control" placeholder="Mật khảu" required aria-describedby="sizing-addon3">
+
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon" id="sizing-addon3">
+                        <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                    </span>
+                    <input type="password" class="form-control" id="txtRePassRegis" placeholder="Nhập lại mật khảu" required aria-describedby="sizing-addon3">
+                    <div id="borderErrorPass" hidden></div>
+                </div>
+                <br />
+                <div id="txtErrorRegis">@ViewBag.Error</div>
+                <br>
+                <strong> Tôi đã đọc và đồng ý với <a href="#">điều khoản sử dụng</a> của WorldOfDiscs.</strong>
+                <br>
+                <input type="submit" name="submit" id="btnRegister_form" value="Đăng ký" class="btn btn-primary pull-right">
+            </form>
+        </div>
+        <script src="~/Scripts/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript">
+            $('#btnRegister_form').click(function () {
+                if ($('#txtFullNameRegis').val() == "")
+                    return true;
+                else {
+                    if ($('#txtEmailRegis').val() == "")
+                        return true;
+                    else
+                        if ($('#txtPassRegis').val() == "")
+                            return true;
+                }
+                if ($('#txtPassRegis').val() != $('#txtRePassRegis').val()) {
+                    $('#txtErrorRegis').text('Lỗi: Mật khẩu nhập lại không trùng khớp !');
+                    $('#borderErrorPass').show();
+                    return false;
+                }
+            });
+        </script>
+    }
+
+
+</div>
+}

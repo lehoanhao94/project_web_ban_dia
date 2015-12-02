@@ -1,0 +1,112 @@
+#mFooter{
+	width: 1155px;
+	height: 560px;
+	float: left;
+}
+#mShare_on{
+	margin-top: 30px;
+	width: 1155px;
+	height: 100px;
+	background-color: #E9EAED;
+	border-top: 7px solid #286090;
+	color: #000;
+	font-family: latobold;
+	font-size: 40px;
+	list-style-type: none;
+
+}
+
+#mShare_on ui li{
+	float: left;
+	padding-left: 10px;
+	padding-top: 11px;
+}
+
+#mShare_on ui li>strong{
+	margin-left: 300px;
+	margin-right: 5px;
+}
+
+.img_footer{
+	float: left;	
+}
+
+.title_footer{
+	padding-left: 15px;
+	float: left;	
+}
+#mContact_us{
+	width: 1155px;
+	height: 162px;
+	background-color: #9BB0DB;
+	float: left;
+	padding-left: 0;
+	padding-right: 0;
+}
+#mContact1{
+	width: 385px;
+	height: 162px;
+	float: left;
+	text-align: center;
+
+	padding-top: 30px;
+	padding-bottom: 30px;	
+}#mContact2{
+	width: 385px;
+	height: 162px;
+	float: left;
+	text-align: center;
+
+	padding-top: 30px;
+	padding-bottom: 30px;	
+}
+#mContact3{
+	width: 385px;
+	height: 162px;
+	float: right;
+	text-align: center;
+
+	padding-top: 30px;
+	padding-bottom: 30px;	
+}
+
+#mMenu_footer{
+	background-color: #708CC6;
+	width: 1155px;
+	padding-bottom: 20px;
+}
+#mMenu_footer ui{
+	float: left;
+	list-style-type: none;
+	width: 20%;
+	margin-left:50px;
+}
+
+#mMenu_footer ui li h3{
+	color: #A11E6B;
+	font-size: 24px;
+}
+
+#mMenu_footer ui li a{
+	color: #FFF;
+	font-size: 17px;
+}
+
+#mCopyright{
+	background-color: #286090;
+	width: 1155px;
+	height: 100px;
+}
+
+#copyright{
+	float: left;
+	text-align: center;
+	padding-top: 16px;
+	color: #FFF;
+}
+
+#logo_footer{
+	float: left;
+	text-align: center;
+	margin-left: 350px;
+}

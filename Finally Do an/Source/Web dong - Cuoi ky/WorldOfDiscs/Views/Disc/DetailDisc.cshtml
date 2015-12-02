@@ -1,0 +1,70 @@
+﻿@using WorldOfDiscs.Models;
+@model Disc
+
+@{
+    ViewBag.Title = "DetailDisc";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+@section Right_content{
+    <div class="detail_product_img">
+    <!-- Hinh anh phim -->
+    <div class="item">
+        <img src=@Url.Content("~/img/disc/" + @Model.Image_big) alt="Image" width="640" height="320">
+        <div class="detail_product_right">
+            <div style=" height: 256px; width: 310px; overflow: auto;">
+                <h3>@Model.Title</h3>
+                <ui>
+                    <li>
+                        <strong>Nội dung:</strong>  @Model.Content
+                    </li>
+                    <li>
+                        <strong>Diễn viên:</strong> @Model.Actor
+                    </li>
+                    <li>
+                        <strong>Quốc gia:</strong> @Model.Country
+                    </li>
+                    <li>
+                        <strong>Thể loại:</strong> @ViewBag.NameCategory
+                    </li>
+                </ui>
+            </div>
+            <ui>
+                <div class="item_price">Giá: @String.Format("{0:0,0}", Model.Price) VNĐ</div>
+           </ui>
+
+            <div class="detail_product_right_bottom">
+                <div class="frmBtnBot" style="width: 100px;float: left; margin-left: 20px;">
+                    @using (Html.BeginForm("AddDiscToShoppingCart", "ShoppingCart", new { @Id_Disc = Model.Id, @strURL = Request.Url.ToString() }))
+                    {
+                        <button id="btnAdd" type="submit" style="cursor:pointer" class="btn btn-info btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào giở hàng"> <span class="glyphicon glyphicon-shopping-cart"></span></button>
+                    }
+                </div>
+                <div class="frmBtnBot" style="width: 100px;float: left;margin-left: 5px;">
+                    @using (Html.BeginForm("", "", new { @Id_Disc = Model.Id, @strURL = Request.Url.ToString() }))
+                    {
+                        <button id="btnLike" class="btn btn-danger btn-lg" data-toggle="tooltip" data-placement="bottom" title="Thêm vào danh sách yêu thích"> <span class="glyphicon glyphicon-heart"></span> </button>
+                    }
+                </div>
+                <div class="frmBtnBot" style="width: 50px;float: left;margin-left: 5px;">
+                    <a href="http://www.facebook.com/sharer.php?u=@Request.Url.ToString()" data-toggle="tooltip" data-placement="bottom" title="Chia sẽ lên facebook"><img src="~/img/fb.png" width="45" height="45" /></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>	
+
+
+
+  </a>
+    <div>
+        <strong> Bình luận: </strong>
+    </div>
+    <b:if cond='data:blog.pageType == &quot;item&quot;'>
+        <div class="fb-comments" data-href=@Url.Content(Request.Url.ToString()) data-width="969" data-num-posts="10"></div>
+    </b:if>  
+  
+}
+

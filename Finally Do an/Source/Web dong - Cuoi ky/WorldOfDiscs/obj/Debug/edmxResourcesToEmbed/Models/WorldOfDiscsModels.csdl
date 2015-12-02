@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WorldOfDiscsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Group_Category" Type="Int32" />
+    <NavigationProperty Name="Group_Category" Relationship="Self.FK_Category_Group_Category" FromRole="Category" ToRole="Group_Category" />
+    <NavigationProperty Name="Discs" Relationship="Self.FK_Discs_Category" FromRole="Category" ToRole="Discs" />
+  </EntityType>
+  <EntityType Name="Detail_Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Order" Type="Int32" />
+    <Property Name="Id_Disc" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="Disc" Relationship="Self.FK_Detail_Order_Discs" FromRole="Detail_Order" ToRole="Discs" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Detail_Order_Order" FromRole="Detail_Order" ToRole="Order" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Direct_Payment_Method">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Shipping_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Id_Order" Type="Int32" />
+    <NavigationProperty Name="Order" Relationship="WorldOfDiscsModel.FK_Direct_Payment_Method_Order" FromRole="Direct_Payment_Method" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Disc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Actor" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Image_small" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Image_big" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Id_Category" Type="Int32" />
+    <Property Name="Id_Group_Category" Type="Int32" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Discs_Category" FromRole="Discs" ToRole="Category" />
+    <NavigationProperty Name="Detail_Order" Relationship="Self.FK_Detail_Order_Discs" FromRole="Discs" ToRole="Detail_Order" />
+    <NavigationProperty Name="Group_Category" Relationship="Self.FK_Discs_Group_Category" FromRole="Discs" ToRole="Group_Category" />
+    <Property Name="IsNew" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Forum_Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Forum_Post" Type="Int32" />
+    <Property Name="Id_User" Type="Int32" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Forum_Post" Relationship="Self.FK_Forum_Comment_Forum_Post" FromRole="Forum_Comment" ToRole="Forum_Post" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Forum_Comment_Users" FromRole="Forum_Comment" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Forum_Post">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Id_User" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Forum_Comment" Relationship="Self.FK_Forum_Comment_Forum_Post" FromRole="Forum_Post" ToRole="Forum_Comment" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Forum_Post_Users" FromRole="Forum_Post" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Group_Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Categories" Relationship="Self.FK_Category_Group_Category" FromRole="Group_Category" ToRole="Category" />
+    <NavigationProperty Name="Discs" Relationship="Self.FK_Discs_Group_Category" FromRole="Group_Category" ToRole="Discs" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_User" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Id_Payment_Method" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="Detail_Order" Relationship="Self.FK_Detail_Order_Order" FromRole="Order" ToRole="Detail_Order" />
+    <NavigationProperty Name="Payment_Method" Relationship="Self.FK_Order_Payment_Method" FromRole="Order" ToRole="Payment_Method" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Order_Users" FromRole="Order" ToRole="Users" />
+    <Property Name="IsPaid" Type="Int32" />
+    <NavigationProperty Name="Direct_Payment_Method" Relationship="WorldOfDiscsModel.FK_Direct_Payment_Method_Order" FromRole="Order" ToRole="Direct_Payment_Method" />
+  </EntityType>
+  <EntityType Name="Payment_Method">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Payment_Method" FromRole="Payment_Method" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Birthday" Type="DateTime" Precision="3" />
+    <Property Name="Sex" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Forum_Comment" Relationship="Self.FK_Forum_Comment_Users" FromRole="Users" ToRole="Forum_Comment" />
+    <NavigationProperty Name="Forum_Post" Relationship="Self.FK_Forum_Post_Users" FromRole="Users" ToRole="Forum_Post" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Users" FromRole="Users" ToRole="Order" />
+    <NavigationProperty Name="Feedbacks" Relationship="WorldOfDiscsModel.FK_Feedback_Users" FromRole="User" ToRole="Feedback" />
+    <Property Name="isAdmin" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_Category_Group_Category">
+    <End Role="Group_Category" Type="Self.Group_Category" Multiplicity="0..1" />
+    <End Role="Category" Type="Self.Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group_Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Category">
+        <PropertyRef Name="Id_Group_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Discs_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Discs" Type="Self.Disc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Discs">
+        <PropertyRef Name="Id_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Detail_Order_Discs">
+    <End Role="Discs" Type="Self.Disc" Multiplicity="0..1" />
+    <End Role="Detail_Order" Type="Self.Detail_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Discs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Detail_Order">
+        <PropertyRef Name="Id_Disc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Detail_Order_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+    <End Role="Detail_Order" Type="Self.Detail_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Detail_Order">
+        <PropertyRef Name="Id_Order" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Discs_Group_Category">
+    <End Role="Group_Category" Type="Self.Group_Category" Multiplicity="0..1" />
+    <End Role="Discs" Type="Self.Disc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group_Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Discs">
+        <PropertyRef Name="Id_Group_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Forum_Comment_Forum_Post">
+    <End Role="Forum_Post" Type="Self.Forum_Post" Multiplicity="0..1" />
+    <End Role="Forum_Comment" Type="Self.Forum_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Forum_Post">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Forum_Comment">
+        <PropertyRef Name="Id_Forum_Post" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Forum_Comment_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Forum_Comment" Type="Self.Forum_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Forum_Comment">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Forum_Post_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Forum_Post" Type="Self.Forum_Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Forum_Post">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Payment_Method">
+    <End Role="Payment_Method" Type="Self.Payment_Method" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment_Method">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Id_Payment_Method" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WorldOfDiscsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Detail_Order" EntityType="Self.Detail_Order" />
+    <EntitySet Name="Direct_Payment_Method" EntityType="Self.Direct_Payment_Method" />
+    <EntitySet Name="Discs" EntityType="Self.Disc" />
+    <EntitySet Name="Forum_Comment" EntityType="Self.Forum_Comment" />
+    <EntitySet Name="Forum_Post" EntityType="Self.Forum_Post" />
+    <EntitySet Name="Group_Category" EntityType="Self.Group_Category" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="Payment_Method" EntityType="Self.Payment_Method" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Category_Group_Category" Association="Self.FK_Category_Group_Category">
+      <End Role="Group_Category" EntitySet="Group_Category" />
+      <End Role="Category" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Discs_Category" Association="Self.FK_Discs_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Discs" EntitySet="Discs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Detail_Order_Discs" Association="Self.FK_Detail_Order_Discs">
+      <End Role="Discs" EntitySet="Discs" />
+      <End Role="Detail_Order" EntitySet="Detail_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Detail_Order_Order" Association="Self.FK_Detail_Order_Order">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Detail_Order" EntitySet="Detail_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Discs_Group_Category" Association="Self.FK_Discs_Group_Category">
+      <End Role="Group_Category" EntitySet="Group_Category" />
+      <End Role="Discs" EntitySet="Discs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Forum_Comment_Forum_Post" Association="Self.FK_Forum_Comment_Forum_Post">
+      <End Role="Forum_Post" EntitySet="Forum_Post" />
+      <End Role="Forum_Comment" EntitySet="Forum_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Forum_Comment_Users" Association="Self.FK_Forum_Comment_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Forum_Comment" EntitySet="Forum_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Forum_Post_Users" Association="Self.FK_Forum_Post_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Forum_Post" EntitySet="Forum_Post" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Payment_Method" Association="Self.FK_Order_Payment_Method">
+      <End Role="Payment_Method" EntitySet="Payment_Method" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Users" Association="Self.FK_Order_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Direct_Payment_Method_Order" Association="WorldOfDiscsModel.FK_Direct_Payment_Method_Order">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Direct_Payment_Method" EntitySet="Direct_Payment_Method" />
+    </AssociationSet>
+    <EntitySet Name="Feedbacks" EntityType="WorldOfDiscsModel.Feedback" />
+    <EntitySet Name="ReplyFeedbacks" EntityType="WorldOfDiscsModel.ReplyFeedback" />
+    <AssociationSet Name="FK_Feedback_Users" Association="WorldOfDiscsModel.FK_Feedback_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Feedback" EntitySet="Feedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReplyFeedback_Feedback" Association="WorldOfDiscsModel.FK_ReplyFeedback_Feedback">
+      <End Role="Feedback" EntitySet="Feedbacks" />
+      <End Role="ReplyFeedback" EntitySet="ReplyFeedbacks" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_Direct_Payment_Method_Order">
+    <End Type="WorldOfDiscsModel.Order" Role="Order" Multiplicity="0..1" />
+    <End Type="WorldOfDiscsModel.Direct_Payment_Method" Role="Direct_Payment_Method" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Direct_Payment_Method">
+        <PropertyRef Name="Id_Order" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_User" Type="Int32" Nullable="false" />
+    <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="WorldOfDiscsModel.FK_Feedback_Users" FromRole="Feedback" ToRole="User" />
+    <NavigationProperty Name="ReplyFeedbacks" Relationship="WorldOfDiscsModel.FK_ReplyFeedback_Feedback" FromRole="Feedback" ToRole="ReplyFeedback" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ReplyFeedback">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Feedback" Type="Int32" Nullable="false" />
+    <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Feedback" Relationship="WorldOfDiscsModel.FK_ReplyFeedback_Feedback" FromRole="ReplyFeedback" ToRole="Feedback" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK_Feedback_Users">
+    <End Type="WorldOfDiscsModel.User" Role="User" Multiplicity="1" />
+    <End Type="WorldOfDiscsModel.Feedback" Role="Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReplyFeedback_Feedback">
+    <End Type="WorldOfDiscsModel.Feedback" Role="Feedback" Multiplicity="1" />
+    <End Type="WorldOfDiscsModel.ReplyFeedback" Role="ReplyFeedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Feedback">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReplyFeedback">
+        <PropertyRef Name="Id_Feedback" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container" style="width:500px;">
+    <h2>Managing User Accounts - Create</h2>
+    <p>Create new account</p>
+    @using (Html.BeginForm("Create", "ManagingUserAccounts", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label>FullName:</label>
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-user"></i>
+                </div>
+                <input name="FullName" type="text" class="form-control" required/>
+            </div><!-- /.input group -->
+        </div><!-- /.form group -->
+        <div class="form-group">
+            <label>Email:</label>
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-envelope-o"></i>
+                </div>
+                <input name="Email" type="email" class="form-control" required/>
+            </div><!-- /.input group -->
+        </div><!-- /.form group -->
+    <div class="form-group">
+        <label>Password:</label>
+        <div class="input-group">
+            <div class="input-group-addon">
+                <i class="fa fa-lock"></i>
+            </div>
+            <input name="Password" type="text" class="form-control" required />
+        </div><!-- /.input group -->
+    </div><!-- /.form group -->
+        <br />
+        if (@ViewBag.Error != null)
+        {
+            <div class="alert alert-danger fade in" style="text-align: center">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                @ViewBag.Error
+            </div>
+        }
+        else if (@ViewBag.Success != null)
+        {
+                <div class="alert alert-success fade in" style="text-align: center">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    @ViewBag.Success
+                </div>
+            }
+        <br />
+    <div class="form-group">
+        <button type="submit" style="width:100%" class="btn btn-primary">Create</button>
+    </div><!-- /.form group -->
+    
+    }
+    
+
+</div>
+
+

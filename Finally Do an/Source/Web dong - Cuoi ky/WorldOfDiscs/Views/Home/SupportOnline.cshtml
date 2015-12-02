@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "SupportOnline";
+    Layout = "~/Views/Shared/_TopBarLayout.cshtml";
+}
+@section Content{
+    <div id="Support_content">
+    <h4>Hỗ trợ online</h4>
+        <div style="padding-left: 250px;">
+            <strong>Bấm vào nút <img src="~/img/support2.jpg" /> ở góc dưới màn hình để bắt đầu hỗ trợ.</strong>
+            <br />
+            
+            <div id="SkypeButton_Call_lehoanhao94_1" style="width: 300px; height: 40px; padding-left: 100px;"></div>
+            <strong>Hoặc chat Skype: </strong>
+        </div>
+    </div>
+
+<script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
+<script type="text/javascript">
+    Skype.ui({
+        "name": "chat",
+        "element": "SkypeButton_Call_lehoanhao94_1",
+        "participants": ["lehoanhao94"],
+        "imageSize": 32
+    });
+</script>
+}

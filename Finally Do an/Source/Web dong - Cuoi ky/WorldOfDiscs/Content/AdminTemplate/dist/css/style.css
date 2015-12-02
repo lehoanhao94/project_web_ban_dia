@@ -1,0 +1,35 @@
+﻿body {
+}
+
+.mPagination{
+    text-align: center;
+}
+
+.Left{
+    float: left;
+    width: auto;
+    min-width: 300px;
+    margin-left: 100px;
+}
+.Right{
+    float: left;
+    width: auto;
+    min-width: 400px;
+    margin-left: 200px;
+}
+
+.btnCreate{
+    float: left;
+}
+
+.txtCreate{
+    float: left;
+    width: 251px;
+    margin-left: 10px;
+}
+
+.txtCreateC{
+    float: left;
+    width: 171px;
+    margin-left: 10px;
+}

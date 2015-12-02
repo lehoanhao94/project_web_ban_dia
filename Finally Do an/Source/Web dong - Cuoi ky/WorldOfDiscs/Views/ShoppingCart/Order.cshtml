@@ -1,0 +1,57 @@
+﻿@using WorldOfDiscs.Models
+@model int
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+@section Right_content
+{
+    <div id="OrderInforBox">
+        <h4 style="height: 40px;font-size: 20px;padding-top: 7px;">Thông tin đặt hàng</h4>
+        <h6>Bạn hãy cung cấp đầy đủ những thông tin đặt hàng để chúng tôi có thể chuyển hàng đến tận tay bạn nhanh nhất ^^.</h6>
+        <h6>Cảm ơn bạn.</h6>
+        @using (Html.BeginForm("AddDirectPaymentMethod", "ShoppingCart", new { @Id_Order = Model }))
+        {
+            <table>
+                <tr>
+                    <td>
+                        <strong>Họ và tên: </strong>
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Địa chỉ giao hàng: </strong>
+                    </td>
+                    <td>
+                        <input name="txtAddressOrder" class="form-control" type="text" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Điện thoại liên lạc: </strong>
+                    </td>
+                    <td>
+                        <input class="form-control" name="txtMobileOrder" type="text" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" id="btnSend" class="btn btn-success" value="Gửi xác nhận" />
+                    </td>
+                </tr>
+            </table>         
+        }
+    </div>
+    <script src="~/Scripts/jquery-1.11.3.min.js"></script>
+    <script>
+        $("#btnSend").click(function () {
+            alert("Bạn đã đặt mua hàng thành công. Bấm OK để trở về trang chủ");
+        });
+    </script>
+       
+}
+
